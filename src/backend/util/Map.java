@@ -44,7 +44,9 @@ public class Map
     /**
      * constructor of the map. creates a new map object that can then be
      * explored by a character
-     * @param size the size of the world
+     *
+     * @param size
+     *            the size of the world
      */
     public Map(int size)
     {
@@ -182,5 +184,65 @@ public class Map
             str = "UNEX";
         }
         return str;
+    }
+
+
+    /**
+     * the string of the locations the character has already been
+     *
+     * @return either returns the string of the path of the character or it
+     *         returns null
+     */
+    public String path()
+    {
+        printMaze();
+
+        int x = 0;
+        stack = new Stack<ILocation>();
+        stack.push(start);
+        x++;
+
+        while (!stack.isEmpty())
+        {
+            ILocation temp = stack.peek();
+            setCell(temp, MapCell.CURRENT_PATH);
+            System.out.println("Iterating...");
+            System.out.println("CURRENT: " + cellDesc(temp));
+            System.out.println("\tNORTH: " + cellDesc(temp.north()));
+            System.out.println("\tSOUTH: " + cellDesc(temp.south()));
+            System.out.println("\tEAST: " + cellDesc(temp.east()));
+            System.out.println("\tWEST: " + cellDesc(temp.west()));
+
+            if (getCell(temp.north()).equals(MapCell.UNEXPLORED))
+            {
+                System.out.println("Pushing -" + temp.north().x() + ","
+                    + temp.north().y());
+                stack.push(temp.north());
+                x++;
+            }
+            else if (getCell(temp.east()).equals(MapCell.UNEXPLORED))
+            {
+                System.out.println("Pushing -" + temp.east().x() + ","
+                    + temp.east().y());
+                stack.push(temp.east());
+                x++;
+            }
+            else if (getCell(temp.south()).equals(MapCell.UNEXPLORED))
+            {
+                System.out.println("Pushing -" + temp.south().x() + ","
+                    + temp.south().y());
+                stack.push(temp.south());
+                x++;
+            }
+            else
+            {
+                System.out.println("Pushing -" + temp.west().x() + ""
+                    + temp.west().y());
+                stack.push(temp.west());
+                x++;
+            }
+
+            return null;
+        }
     }
 }
