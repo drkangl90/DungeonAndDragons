@@ -17,6 +17,9 @@ public class Map
     private int                size;
     private MapCell[][]        world;
     private ILocation          start;
+    /**
+     * stack to store the location of where the character has already been
+     */
     protected Stack<ILocation> stack;
 
 
@@ -241,8 +244,7 @@ public class Map
                 stack.push(temp.west());
                 x++;
             }
-
-            return null;
         }
+        return null;
     }
 }
