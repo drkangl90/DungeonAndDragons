@@ -41,6 +41,10 @@ public class Map
          */
         CURRENT_PATH,
         /**
+         * cell with the Key
+         */
+        KEY,
+        /**
          * cell that can't be traversed
          */
         INVALID_CELL;
