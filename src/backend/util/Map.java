@@ -1,8 +1,5 @@
 package backend.util;
 
-import cs2114.mazesolver.ILocation;
-import cs2114.mazesolver.Location;
-import cs2114.mazesolver.MazeCell;
 import java.util.Stack;
 
 // -------------------------------------------------------------------------
@@ -273,12 +270,12 @@ public class Map
                 if (rows[j].charAt(i) == 'W')
                 {
                     ILocation loc = new Location(i, j);
-                    setCell(loc, MazeCell.WALL);
+                    setCell(loc, MapCell.WALL);
                 }
                 else if (rows[j].charAt(i) == 'K')
                 {
                     ILocation loc = new Location(i, j);
-                    setCell(loc, MazeCell.KEY);
+                    setCell(loc, MapCell.KEY);
                 }
                 else if (rows[j].charAt(i) == 'S')
                 {
