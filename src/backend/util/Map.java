@@ -1,5 +1,8 @@
 package backend.util;
 
+import cs2114.mazesolver.ILocation;
+import cs2114.mazesolver.Location;
+import cs2114.mazesolver.MazeCell;
 import java.util.Stack;
 
 // -------------------------------------------------------------------------
@@ -246,5 +249,44 @@ public class Map
             }
         }
         return null;
+    }
+    
+    /**
+     * Loads a board based on the strings given. For testing. O = Open Cell W =
+     * WALL, K = Key, S = Start, G = Goal
+     *
+     * @param board
+     *            the rows given to build the board
+     */
+    public void loadBoardState(String... board)
+    {
+        String[] rows = board;
+
+        for (int i = 0; i < rows.length; i++)
+        {
+            for (int j = 0; j < rows.length; j++)
+            {
+                if (rows[j].charAt(i) == 'W')
+                {
+                    ILocation loc = new Location(i, j);
+                    setCell(loc, MazeCell.WALL);
+                }
+                else if (rows[j].charAt(i) == 'K')
+                {
+                    ILocation loc = new Location(i, j);
+                    setCell(loc, MazeCell.KEY);
+                }
+                else if (rows[j].charAt(i) == 'S')
+                {
+                    ILocation loc = new Location(i, j);
+                    setStartLocation(loc);
+                }
+                else if (rows[j].charAt(i) == 'G')
+                {
+                    ILocation loc = new Location(i, j);
+                    setGoalLocation(loc);
+                }
+            }
+        }
     }
 }
