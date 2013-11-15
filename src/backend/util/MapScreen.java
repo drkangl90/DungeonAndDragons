@@ -47,7 +47,25 @@ public class MapScreen
 
     public void onTouchDown(float x, float y)
     {
-        hasBeenClicked = true;
+        setHasBeenClicked(true);
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * @return the hasBeenClicked
+     */
+    public boolean isHasBeenClicked()
+    {
+        return hasBeenClicked;
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * @param hasBeenClicked the hasBeenClicked to set
+     */
+    public void setHasBeenClicked(boolean hasBeenClicked)
+    {
+        this.hasBeenClicked = hasBeenClicked;
     }
 
 }
