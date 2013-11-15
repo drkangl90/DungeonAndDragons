@@ -253,8 +253,12 @@ public class Map
     }
     
     /**
-     * Loads a board based on the strings given. For testing. O = Open Cell W =
-     * WALL, K = Key, S = Start, G = Goal
+     * Loads a board based on the strings given.
+     * O = UNEXPLORED
+     * W = WALL
+     * K = KEY
+     * S = Start
+     * G = Goal
      *
      * @param board
      *            the rows given to build the board
