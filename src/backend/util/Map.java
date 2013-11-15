@@ -295,10 +295,10 @@ public class Map
      */
     public int getDistance(/*Monster mon*/)
     {
-        /*int charX = MapScreen.getCharacterLocation().x();
-        int charY = MapScreen.getCharacterLocation().y();
-        int monsX = MapScreen.getMonsterLocation().x();
-        int monsY = MapScreen.getMonsterLocation().y();
+        /*int charX = MapScreen.getCharacter().getX();
+        int charY = MapScreen.getCharacter().getY();
+        int monsX = MapScreen.getMonster().getX();
+        int monsY = MapScreen.getMonster().getY();
 
         return
             Math.sqrt(Math.pow(charX - monsX, 2) + Math.pow(charY - monsY, 2));*/
