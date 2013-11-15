@@ -291,6 +291,22 @@ public class Map
     }
 
     /**
+     * Calculates distance between the character and a monster.
+     */
+    public int getDistance(/*Monster mon*/)
+    {
+        /*int charX = MapScreen.getCharacter().getX();
+        int charY = MapScreen.getCharacter().getY();
+        int monsX = MapScreen.getMonster().getX();
+        int monsY = MapScreen.getMonster().getY();
+
+        return
+            Math.sqrt(Math.pow(charX - monsX, 2) + Math.pow(charY - monsY, 2));*/
+
+        return 0;
+    }
+
+    /**
      * Loads a board based on the strings given.
      * O = UNEXPLORED
      * W = WALL
