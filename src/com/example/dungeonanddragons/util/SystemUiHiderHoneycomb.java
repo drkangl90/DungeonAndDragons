@@ -114,7 +114,6 @@ public class SystemUiHiderHoneycomb
 
     private View.OnSystemUiVisibilityChangeListener mSystemUiVisibilityChangeListener =
                                                                                           new View.OnSystemUiVisibilityChangeListener() {
-                                                                                              @Override
                                                                                               public void onSystemUiVisibilityChange(
                                                                                                   int vis)
                                                                                               {
