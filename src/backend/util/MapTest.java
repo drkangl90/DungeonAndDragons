@@ -49,7 +49,7 @@ public class MapTest extends student.TestCase
     {
         map.setCell(locat,  MapCell.CURRENT_PATH);
         System.out.println(map.getCell(locat));
-        assertTrue(MapCell.CURRENT_PATH.equals(map.getCell(locat)));
+        assertEquals(MapCell.CURRENT_PATH, map.getCell(locat));
     }
 
     // ----------------------------------------------------------
