@@ -17,6 +17,7 @@ public class Map
     private int                size;
     private MapCell[][]        world;
     private ILocation          start;
+    private ILocation goal;
     /**
      * stack to store the location of where the character has already been
      */
@@ -41,6 +42,10 @@ public class Map
          * cell with the Key
          */
         KEY,
+        /**
+         * cell with a wall
+         */
+        WALL,
         /**
          * cell that can't be traversed
          */
@@ -68,6 +73,11 @@ public class Map
             }
         }
         start = new Location(0, 0);
+        goal = new Location(0,0);
+        if (size > 0)
+        {
+            goal = new Location(size - 1, size - 1);
+        }
         this.stack = new Stack<ILocation>();
     }
 
@@ -103,6 +113,16 @@ public class Map
         return start;
     }
 
+    /**
+     * gets the goal location in the maze
+     *
+     * @return returns the goal location
+     */
+    public ILocation getGoalLocation()
+    {
+        return goal;
+    }
+
 
     /**
      * sets the cell
@@ -116,7 +136,8 @@ public class Map
     {
         int x = location.x();
         int y = location.y();
-        if (!location.equals(start))
+        if (cell == MapCell.WALL
+            && !(location.equals(goal) || location.equals(start)))
         {
             System.out.println("test - " + location.x() + ", " + location.y());
             world[location.x()][location.y()] = cell;
@@ -137,10 +158,27 @@ public class Map
      */
     public void setStartLocation(ILocation location)
     {
-        setCell(location, MapCell.UNEXPLORED);
+        if (getCell(location) == MapCell.WALL)
+        {
+            setCell(location, MapCell.UNEXPLORED);
+        }
         start = location;
     }
 
+    /**
+     * sets the goal location
+     *
+     * @param location
+     *            the location for the goal
+     */
+    public void setGoalLocation(ILocation location)
+    {
+        if (getCell(location) == MapCell.WALL)
+        {
+            setCell(location, MapCell.UNEXPLORED);
+        }
+        goal = location;
+    }
 
     /**
      * returns the size of the maze
@@ -251,7 +289,7 @@ public class Map
         }
         return null;
     }
-    
+
     /**
      * Loads a board based on the strings given.
      * O = UNEXPLORED
