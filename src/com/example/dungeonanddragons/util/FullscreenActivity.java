@@ -1,7 +1,6 @@
-package com.example.dungeonanddragons;
+package com.example.dungeonanddragons.util;
 
 import sofia.app.Screen;
-import com.example.dungeonanddragons.util.SystemUiHider;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
