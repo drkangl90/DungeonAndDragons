@@ -2,31 +2,31 @@ package backend.util;
 
 import java.util.Random;
 
-
 // -------------------------------------------------------------------------
 /**
  *  Tests the character class
  *
  *  @author Alycia Rouffa
+ *  @author Mary-Wynn Rogers (marywynn)
  *  @version 11.15.2013
  */
 public class CharacterTest extends student.TestCase
 {
-    //private Character char1;
+    private Character fighter;
+    private Character rogue;
+    private Character wizard;
     Character test;
 
     private int health;
-    private int attack;
+    private int strength;
 
     /**
      * Sets up the information to be tested
      */
     public void setUp()
     {
-        //How do we set this as the selected character?
-        //char1 = fighter;
         health = 100;
-        attack = 10;
+        strength = 10;
     }
 
     /**
@@ -38,36 +38,56 @@ public class CharacterTest extends student.TestCase
     }
 
     /**
-     * Tests the getHealth() method
-     */
-    public void testGetHealth()
-    {
-//        test.setHealth(health);
-//        assertEquals(health, test.getHealth(health));
-    }
-
-    /**
-     * Tests the setHealth() method
+     * Tests the getHealth and setHealth method for fighter
      */
     public void testSetHealth()
     {
-//       test.setHealth(health);
-//       assertEquals(health, test.getHealth());
+       test.setHealth(fighter);
+       assertEquals(100, test.getHealth());
     }
 
     /**
-     * Tests the getAttack() method
+     * Tests the getHealth and setHealth method for rogue
      */
-    public void testGetAttack()
+    public void testSetHealth1()
     {
-        //
+       test.setHealth(rogue);
+        assertEquals(90, test.getHealth());
     }
 
     /**
-     * Tests the setAttack() method
+     * Tests the getHealth and setHealth method for rogue
      */
-    public void testSetAttack()
+    public void testSetHealth2()
     {
-        //
+       test.setHealth(wizard);
+        assertEquals(80, test.getHealth());
+    }
+
+    /**
+     * Tests the getStrength and setStrength method for wizard
+     */
+    public void testSetStrength()
+    {
+       test.setStrength(fighter);
+        assertEquals(20, test.getStrength());
+    }
+
+    /**
+     * Tests the getStrength and setStrength method for rogue
+     */
+    public void testSetStrength1()
+    {
+       test.setStrength(rogue);
+        assertEquals(15, test.getStrength());
+    }
+
+    /**
+     * Tests the getStrength and setStrength method for wizard
+     */
+    public void testSetStrength2()
+    {
+       test.setStrength(wizard);
+        assertEquals(20, test.getStrength());
     }
 }
