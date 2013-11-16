@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.dungeonanddragons;
+package backend.util;
 
 public final class R {
     public static final class attr {
@@ -84,8 +84,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ButtonBarContainerTheme_buttonBarButtonStyle com.example.dungeonanddragons:buttonBarButtonStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #ButtonBarContainerTheme_buttonBarStyle com.example.dungeonanddragons:buttonBarStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_buttonBarButtonStyle backend.util:buttonBarButtonStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_buttonBarStyle backend.util:buttonBarStyle}</code></td><td></td></tr>
            </table>
            @see #ButtonBarContainerTheme_buttonBarButtonStyle
            @see #ButtonBarContainerTheme_buttonBarStyle
@@ -94,23 +94,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010000, 0x7f010001
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.dungeonanddragons.R.attr#buttonBarButtonStyle}
+          <p>This symbol is the offset where the {@link backend.util.R.attr#buttonBarButtonStyle}
           attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.dungeonanddragons:buttonBarButtonStyle
+          @attr name backend.util:buttonBarButtonStyle
         */
         public static final int ButtonBarContainerTheme_buttonBarButtonStyle = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.dungeonanddragons.R.attr#buttonBarStyle}
+          <p>This symbol is the offset where the {@link backend.util.R.attr#buttonBarStyle}
           attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.dungeonanddragons:buttonBarStyle
+          @attr name backend.util:buttonBarStyle
         */
         public static final int ButtonBarContainerTheme_buttonBarStyle = 0;
     };
