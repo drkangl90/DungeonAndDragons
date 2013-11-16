@@ -8,7 +8,7 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="18" />
 
-    <instrumentation android:targetPackage="FullScreenActivity"
+    <instrumentation android:targetPackage="com.example.dungeonanddragons"
         android:name="android.test.InstrumentationTestRunner">
     </instrumentation>
     
