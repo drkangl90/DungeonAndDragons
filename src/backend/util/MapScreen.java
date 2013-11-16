@@ -65,7 +65,7 @@ public class MapScreen
      */
     public void setHasBeenClicked(boolean hasBeenClicked)
     {
-        this.hasBeenClicked = hasBeenClicked;
+        this.hasBeenClicked = true;
     }
 
 }
