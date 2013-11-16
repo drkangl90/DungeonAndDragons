@@ -7,7 +7,7 @@ import java.util.Random;
 * Class that creates the interactions that the character should have in the
 * maze. Will compensate for level of map screen.
 *
-* @author Alycia Rouffa
+* @author Alycia Rouffa (arouffa)
 * @version 11.15.2013
 */
 public class Character
@@ -36,7 +36,7 @@ public class Character
  {
      // creates the random number generator to be used in following methods.
      rand = new Random();
-     rand.nextInt(2);
+     rand.nextInt(3);
 
      healthField = health;
      strengthField = strength;
@@ -52,12 +52,12 @@ public class Character
   */
  public int attack()
  {
-     if (rand.nextInt() == 0)
+     if (rand.nextInt() == 1)
      {
          strengthField = 0;
          return strengthField;
      }
-     else if (rand.nextInt() == 1)
+     else if (rand.nextInt() == 2)
      {
          strengthField /= 2;
          return strengthField;

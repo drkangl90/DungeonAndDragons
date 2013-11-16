@@ -1,12 +1,12 @@
 package backend.util;
 
-import java.util.Random;
+import sofia.util.Random;
 
 // -------------------------------------------------------------------------
 /**
  *  Tests the character class
  *
- *  @author Alycia Rouffa
+ *  @author Alycia Rouffa (arouffa)
  *  @author Mary-Wynn Rogers (marywynn)
  *  @version 11.15.2013
  */
@@ -15,18 +15,18 @@ public class CharacterTest extends student.TestCase
     private Character fighter;
     private Character rogue;
     private Character wizard;
-    Character test;
+    //Character test;
 
-    private int health;
-    private int strength;
+    private int healthField;
+    private int strengthField;
 
     /**
      * Sets up the information to be tested
      */
     public void setUp()
     {
-        health = 100;
-        strength = 10;
+        healthField = 100;
+        strengthField = 10;
     }
 
     /**
@@ -35,6 +35,9 @@ public class CharacterTest extends student.TestCase
     public void testAttack()
     {
         //I'm not sure how to test for Random numbers
+        Random.setNextInts(1);
+        fighter.attack();
+        assertEquals(0, fighter.getStrength());
     }
 
     /**
@@ -42,8 +45,8 @@ public class CharacterTest extends student.TestCase
      */
     public void testSetHealth()
     {
-       test.setHealth(fighter);
-       assertEquals(100, test.getHealth());
+       fighter.setHealth(fighter);
+       assertEquals(100, fighter.getHealth());
     }
 
     /**
@@ -51,8 +54,8 @@ public class CharacterTest extends student.TestCase
      */
     public void testSetHealth1()
     {
-       test.setHealth(rogue);
-        assertEquals(90, test.getHealth());
+       rogue.setHealth(rogue);
+        assertEquals(90, rogue.getHealth());
     }
 
     /**
@@ -60,8 +63,8 @@ public class CharacterTest extends student.TestCase
      */
     public void testSetHealth2()
     {
-       test.setHealth(wizard);
-        assertEquals(80, test.getHealth());
+       wizard.setHealth(wizard);
+        assertEquals(80, wizard.getHealth());
     }
 
     /**
@@ -69,8 +72,8 @@ public class CharacterTest extends student.TestCase
      */
     public void testSetStrength()
     {
-       test.setStrength(fighter);
-        assertEquals(20, test.getStrength());
+       fighter.setStrength(fighter);
+        assertEquals(20, fighter.getStrength());
     }
 
     /**
@@ -78,8 +81,8 @@ public class CharacterTest extends student.TestCase
      */
     public void testSetStrength1()
     {
-       test.setStrength(rogue);
-        assertEquals(15, test.getStrength());
+       rogue.setStrength(rogue);
+        assertEquals(15, rogue.getStrength());
     }
 
     /**
@@ -87,7 +90,7 @@ public class CharacterTest extends student.TestCase
      */
     public void testSetStrength2()
     {
-       test.setStrength(wizard);
-        assertEquals(20, test.getStrength());
+       wizard.setStrength(wizard);
+        assertEquals(20, wizard.getStrength());
     }
 }
