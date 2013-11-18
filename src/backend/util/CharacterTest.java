@@ -1,6 +1,7 @@
 package backend.util;
 
-import sofia.util.Random;
+import java.util.Random;
+import junit.framework.TestCase;
 
 // -------------------------------------------------------------------------
 /**
@@ -10,13 +11,14 @@ import sofia.util.Random;
  *  @author Mary-Wynn Rogers (marywynn)
  *  @version 11.15.2013
  */
-public class CharacterTest extends student.TestCase
+public class CharacterTest extends TestCase
 {
     private Character fighter;
     private Character rogue;
     private Character wizard;
     //Character test;
 
+    private Random          rand;
     private int healthField;
     private int strengthField;
 
