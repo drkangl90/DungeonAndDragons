@@ -1,7 +1,7 @@
 package backend.util;
+import student.TestCase;
 
-import java.util.Random;
-import junit.framework.TestCase;
+import sofia.util.Random;
 
 // -------------------------------------------------------------------------
 /**

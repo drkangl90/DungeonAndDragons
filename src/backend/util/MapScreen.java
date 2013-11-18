@@ -1,5 +1,6 @@
 package backend.util;
 
+import sofia.graphics.RectangleShape;
 import android.graphics.Color;
 
 // -------------------------------------------------------------------------
@@ -44,6 +45,12 @@ public class MapScreen
         }
     }
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param x
+     * @param y
+     */
     public void onTouchDown(float x, float y)
     {
         setHasBeenClicked(true);
