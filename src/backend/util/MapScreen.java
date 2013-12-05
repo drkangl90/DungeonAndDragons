@@ -1,7 +1,8 @@
 package backend.util;
 
 import sofia.graphics.RectangleShape;
-import android.graphics.Color;
+import sofia.graphics.Color;
+//import android.graphics.Color;
 
 // -------------------------------------------------------------------------
 /**
