@@ -1,6 +1,5 @@
 package backend.util;
 
-
 // -------------------------------------------------------------------------
 /**
  * This interface represents an (x, y) coordinate pair, used to indicate cell
@@ -121,7 +120,7 @@ public class Location
      *
      * @param object
      *            an object that is getting compared
-     * @return returns true of object = maze, false if not
+     * @return returns true of object = map, false if not
      */
     public boolean equals(Object object)
     {

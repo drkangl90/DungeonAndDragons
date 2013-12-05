@@ -4,5 +4,12 @@
     <string name="app_name">Dungeon and Dragons</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="east">East</string>
+    <string name="north">North</string>
+    <string name="west">West</string>
+    <string name="south">South</string>
+    <string name="fight">Fight</string>
+    <string name="flee">Flee</string>
+    <string name="defend">Defend</string>
 
 </resources>

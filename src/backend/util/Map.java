@@ -17,7 +17,7 @@ public class Map
     private int                size;
     private MapCell[][]        world;
     private ILocation          start;
-    private ILocation goal;
+    private ILocation          goal;
     /**
      * stack to store the location of where the character has already been
      */
@@ -73,7 +73,7 @@ public class Map
             }
         }
         start = new Location(0, 0);
-        goal = new Location(0,0);
+        goal = new Location(0, 0);
         if (size > 0)
         {
             goal = new Location(size - 1, size - 1);
@@ -112,6 +112,7 @@ public class Map
     {
         return start;
     }
+
 
     /**
      * gets the goal location in the maze
@@ -165,6 +166,7 @@ public class Map
         start = location;
     }
 
+
     /**
      * sets the goal location
      *
@@ -179,6 +181,7 @@ public class Map
         }
         goal = location;
     }
+
 
     /**
      * returns the size of the maze
@@ -290,29 +293,27 @@ public class Map
         return null;
     }
 
+
     /**
      * Calculates distance between the character and a monster.
      */
-    public int getDistance(/*Monster mon*/)
+    public int getDistance(/* Monster mon */)
     {
-        /*int charX = MapScreen.getCharacter().getX();
-        int charY = MapScreen.getCharacter().getY();
-        int monsX = MapScreen.getMonster().getX();
-        int monsY = MapScreen.getMonster().getY();
-
-        return
-            Math.sqrt(Math.pow(charX - monsX, 2) + Math.pow(charY - monsY, 2));*/
+        /*
+         * int charX = MapScreen.getCharacter().getX(); int charY =
+         * MapScreen.getCharacter().getY(); int monsX =
+         * MapScreen.getMonster().getX(); int monsY =
+         * MapScreen.getMonster().getY(); return Math.sqrt(Math.pow(charX -
+         * monsX, 2) + Math.pow(charY - monsY, 2));
+         */
 
         return 0;
     }
 
+
     /**
-     * Loads a board based on the strings given.
-     * O = UNEXPLORED
-     * W = WALL
-     * K = KEY
-     * S = Start
-     * G = Goal
+     * Loads a board based on the strings given. O = UNEXPLORED W = WALL K = KEY
+     * S = Start G = Goal
      *
      * @param board
      *            the rows given to build the board
