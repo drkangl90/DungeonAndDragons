@@ -1,5 +1,6 @@
 package backend.util;
 
+import backend.util.Character.State;
 import android.widget.ProgressBar;
 import android.widget.Button;
 import sofia.graphics.RectangleShape;
@@ -31,28 +32,28 @@ public class MapScreen
     private Button             defend;
     private Button             flee;
     private ProgressBar        health;
-    private State              status;
+    //protected State            status;
 
 
-    public enum State
-    {
-        /**
-         * This faces the character to the north direction.
-         */
-        NORTH,
-        /**
-         * This faces the character to the east direction.
-         */
-        EAST,
-        /**
-         * This faces the character to the south direction.
-         */
-        SOUTH,
-        /**
-         * This faces the character to the west direction.
-         */
-        WEST
-    }
+//    public enum State
+//    {
+//        /**
+//         * This faces the character to the north direction.
+//         */
+//        NORTH,
+//        /**
+//         * This faces the character to the east direction.
+//         */
+//        EAST,
+//        /**
+//         * This faces the character to the south direction.
+//         */
+//        SOUTH,
+//        /**
+//         * This faces the character to the west direction.
+//         */
+//        WEST
+//    }
 
 
     public void initialize()

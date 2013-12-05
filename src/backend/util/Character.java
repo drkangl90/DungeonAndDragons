@@ -1,9 +1,11 @@
 package backend.util;
+
+import sofia.graphics.ShapeView;
 import sofia.util.Random;
 
-//import java.util.Random;
+// import java.util.Random;
 
-//-------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 /**
  * Class that creates the interactions that the character should have in the
  * maze. Will compensate for level of map screen.
@@ -12,22 +14,24 @@ import sofia.util.Random;
  * @author Mary-Wynn Rogers (marywynn)
  * @version 11.15.2013
  */
-public class Character
+public class Character extends ShapeView
 {
 
     // full health
-    private int             baseHealth;
-    private int             totalHealth;
+    private int      baseHealth;
+    private int      totalHealth;
     // full capacity of attack
-    private int             baseStrength;
-    private int             totalStrength;
+    private int      baseStrength;
+    private int      totalStrength;
 
-    private int             level;
-    private Random          rand;
-    private Location  direction;
-    protected int     x;
-    protected int     y;
-    private State status;
+    private int      level;
+    private Random   rand;
+    private Location direction;
+    protected static int    x;
+    protected static int    y;
+    //protected State  status;
+
+
     /**
      * The enum types available.
      */
@@ -63,6 +67,7 @@ public class Character
      */
     public Character(int health, int strength)
     {
+        super(null, null);
         // creates the random number generator to be used in following methods.
         rand = new Random();
 
@@ -71,6 +76,7 @@ public class Character
         totalHealth = health;
         baseStrength = strength;
         totalStrength = strength;
+
     }
 
 
@@ -114,7 +120,8 @@ public class Character
      * This is the setHealth() method, which sets the health of the character.
      * Incorporates for leveling up.
      *
-     * @param health Sets the health of the character
+     * @param health
+     *            Sets the health of the character
      */
     public void setBaseHealth(int health)
     {
@@ -128,16 +135,16 @@ public class Character
 
 
     /**
-     * This is the getStrength() method, which gets the strength of
-     * the character. Incorporates for leveling up.
+     * This is the getStrength() method, which gets the strength of the
+     * character. Incorporates for leveling up.
      *
-     * @return returns the amount of strength for attacks that the character
-     *         has
+     * @return returns the amount of strength for attacks that the character has
      */
     public int getStrength()
     {
         return totalStrength;
     }
+
 
     /**
      * Changes what level the character is at, and increments the health and
@@ -150,8 +157,10 @@ public class Character
         totalStrength += totalStrength * .1;
     }
 
+
     /**
      * This gets the level of the character.
+     *
      * @return the current level of the character
      */
     public int getLevel()
@@ -159,9 +168,10 @@ public class Character
         return level;
     }
 
+
     /**
-     * This is the setStrength() method which sets the strength
-     * of the character.
+     * This is the setStrength() method which sets the strength of the
+     * character.
      *
      * @param strength
      *            The set strength of the character.
@@ -176,11 +186,6 @@ public class Character
         }
     }
 
-
-    public int x()
-    {
-        return x;
-    }
 
 
     // ----------------------------------------------------------
@@ -198,171 +203,186 @@ public class Character
     // ----------------------------------------------------------
     /**
      * sets the location of the character
-     * @param direction
+     *
+     * @param status
      */
-    public void setDirection(Location direction)
+    public void setDirection(State status)
     {
-        if (State = NORTH)
+        if (status == State.NORTH)
         {
-            this.turn(90);
+            setRotation(90);
+        }
+        else if (status == State.EAST)
+        {
+            setRotation(0);
+        }
+        else if (status == State.WEST)
+        {
+            setRotation(180);
+        }
+        else if (status == State.SOUTH)
+        {
+            setRotation(270);
         }
     }
 
+}
+
 //
-//=======
+// =======
 // // full health
-// private int             healthField;
+// private int healthField;
 // // full capacity of attack
-// private int             strengthField;
-// private Character       fighter;
-// private Character       rogue;
-// private Character       wizard;
-// private Random          rand;
+// private int strengthField;
+// private Character fighter;
+// private Character rogue;
+// private Character wizard;
+// private Random rand;
 // private directionOfChar leDirection;
 //
 //
 // // Constructor ----------------------------------------------------------
 // /**
-//  * Create a new Character object.
-//  *
-//  * @param health
-//  *            The health of the character
-//  * @param strength
-//  *            The strength of the character.
-//  */
+// * Create a new Character object.
+// *
+// * @param health
+// * The health of the character
+// * @param strength
+// * The strength of the character.
+// */
 // public Character(int health, int strength)
 // {
-//     // creates the random number generator to be used in following methods.
-//     rand = new Random();
-//     rand.nextInt(3);
+// // creates the random number generator to be used in following methods.
+// rand = new Random();
+// rand.nextInt(3);
 //
-//     healthField = health;
-//     strengthField = strength;
+// healthField = health;
+// strengthField = strength;
 // }
 //
 //
 // /**
-//  * This is the attack method of the character. It will return a random
-//  * integer that will then be called from the damage() method in the Map
-//  * class on the Monsters
-//  *
-//  * @return returns the integer value of the attack to the Monsters
-//  */
+// * This is the attack method of the character. It will return a random
+// * integer that will then be called from the damage() method in the Map
+// * class on the Monsters
+// *
+// * @return returns the integer value of the attack to the Monsters
+// */
 // public int attack()
 // {
-//     if (rand.nextInt() == 1)
-//     {
-//         strengthField = 0;
-//         return strengthField;
-//     }
-//     else if (rand.nextInt() == 2)
-//     {
-//         strengthField /= 2;
-//         return strengthField;
-//     }
-//     else
-//     {
-//         return strengthField;
-//     }
+// if (rand.nextInt() == 1)
+// {
+// strengthField = 0;
+// return strengthField;
+// }
+// else if (rand.nextInt() == 2)
+// {
+// strengthField /= 2;
+// return strengthField;
+// }
+// else
+// {
+// return strengthField;
+// }
 // }
 //
 //
 // /**
-//  * This is the getHeatlh() method, which gets the health based on the
-//  * character selected.
-//  *
-//  * @return returns the amount of health the character selected has
-//  */
+// * This is the getHeatlh() method, which gets the health based on the
+// * character selected.
+// *
+// * @return returns the amount of health the character selected has
+// */
 // public int getHealth()
 // {
-//     return healthField;
+// return healthField;
 // }
 //
 //
 // /**
-//  * This is the setHealth() method, which sets the health based on the
-//  * character selected.
-//  *
-//  * @param character
-//  *            The character that was selected decides the stats.
-//  */
+// * This is the setHealth() method, which sets the health based on the
+// * character selected.
+// *
+// * @param character
+// * The character that was selected decides the stats.
+// */
 // public void setHealth(Character character)
 // {
-//     // attack and strength arbitrarily chosen.
-//     if (character == fighter)
-//     {
-//         healthField = 100;
-//     }
-//     else if (character == rogue)
-//     {
-//         healthField = 90;
-//     }
-//     else
-//     {
-//         healthField = 80;
-//     }
+// // attack and strength arbitrarily chosen.
+// if (character == fighter)
+// {
+// healthField = 100;
+// }
+// else if (character == rogue)
+// {
+// healthField = 90;
+// }
+// else
+// {
+// healthField = 80;
+// }
 // }
 //
 //
 // /**
-//  * This is the getStrength() method, which gets the strength based on the
-//  * character selected.
-//  *
-//  * @return returns the amount of strength for attacks that the character
-//  *         selected has
-//  */
+// * This is the getStrength() method, which gets the strength based on the
+// * character selected.
+// *
+// * @return returns the amount of strength for attacks that the character
+// * selected has
+// */
 // public int getStrength()
 // {
-//     return strengthField;
+// return strengthField;
 // }
 //
 //
 // /**
-//  * This is the setStrength() method which sets the strength based on the
-//  * character selected.
-//  *
-//  * @param character
-//  *            The character that was selected decides the stats.
-//  */
+// * This is the setStrength() method which sets the strength based on the
+// * character selected.
+// *
+// * @param character
+// * The character that was selected decides the stats.
+// */
 // public void setStrength(Character character)
 // {
-//     // attack and strength arbitrarily chosen.
-//     if (character == fighter)
-//     {
-//         strengthField = 10;
-//     }
-//     else if (character == rogue)
-//     {
-//         strengthField = 15;
-//     }
-//     else
-//     {
-//         strengthField = 20;
-//     }
+// // attack and strength arbitrarily chosen.
+// if (character == fighter)
+// {
+// strengthField = 10;
+// }
+// else if (character == rogue)
+// {
+// strengthField = 15;
+// }
+// else
+// {
+// strengthField = 20;
+// }
 // }
 //
 //
 // /**
-//  * The enum types available.
-//  */
+// * The enum types available.
+// */
 // public enum directionOfChar
 // {
-//     /**
-//      * This faces the character to the north direction.
-//      */
-//     NORTH,
-//     /**
-//      * This faces the character to the east direction.
-//      */
-//     EAST,
-//     /**
-//      * This faces the character to the south direction.
-//      */
-//     SOUTH,
-//     /**
-//      * This faces the character to the west direction.
-//      */
-//     WEST
+// /**
+// * This faces the character to the north direction.
+// */
+// NORTH,
+// /**
+// * This faces the character to the east direction.
+// */
+// EAST,
+// /**
+// * This faces the character to the south direction.
+// */
+// SOUTH,
+// /**
+// * This faces the character to the west direction.
+// */
+// WEST
 // }
-//>>>>>>> Stashed changes
-//}
+// >>>>>>> Stashed changes
+// }
