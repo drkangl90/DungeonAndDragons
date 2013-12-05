@@ -6,9 +6,7 @@ import sofia.graphics.Color;
 
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ *  The MapScreen will have all of the GUI for this project.
  *
  *  @author Ben
  *  @version Nov 15, 2013
