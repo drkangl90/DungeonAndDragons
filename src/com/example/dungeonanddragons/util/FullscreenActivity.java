@@ -1,7 +1,5 @@
 package com.example.dungeonanddragons.util;
 
-import sofia.app.Screen;
-
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -12,5 +10,5 @@ import sofia.app.Screen;
 public class FullscreenActivity
     extends Screen
 {
-    //
+
 }

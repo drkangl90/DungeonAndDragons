@@ -5,7 +5,7 @@ import sofia.util.Random;
 
 // -------------------------------------------------------------------------
 /**
- *  Tests the monster class
+ *  Tests the character class
  *
  *  @author Alycia Rouffa (arouffa)
  *  @version 11.15.2013
