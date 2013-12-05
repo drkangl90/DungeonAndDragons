@@ -16,12 +16,7 @@ public class Monsters
     private int            healthField;
     // full capacity of attack
     private int            strengthField;
-    private Monsters       rat;
-    private Monsters       orc;
-    private Monsters       goblin;
     private Random         rand;
-    private directionOfMon leWay;
-
 
     // Constructor ----------------------------------------------------------
     /**
@@ -36,7 +31,6 @@ public class Monsters
     {
         // creates the random number generator to be used in following methods.
         rand = new Random();
-        rand.nextInt(3);
 
         healthField = health;
         strengthField = strength;
@@ -52,15 +46,10 @@ public class Monsters
      */
     public int attack()
     {
-        if (rand.nextInt() == 1)
+        int temp = rand.nextInt(2);
+        if (temp == 1)
         {
-            strengthField = 0;
-            return strengthField;
-        }
-        else if (rand.nextInt() == 2)
-        {
-            strengthField /= 2;
-            return strengthField;
+            return 0;
         }
         else
         {
@@ -86,23 +75,12 @@ public class Monsters
      * monster generated.
      *
      * @param monster
-     *            The monster that was generated randomly.
+     *            The monster that was generated.
      */
     public void setHealth(Monsters monster)
     {
         // attack and strength arbitrarily chosen.
-        if (monster == rat)
-        {
-            healthField = 30;
-        }
-        else if (monster == orc)
-        {
-            healthField = 40;
-        }
-        else
-        {
-            healthField = 60;
-        }
+        //
     }
 
 
@@ -129,41 +107,6 @@ public class Monsters
     public void setStrength(Monsters monster)
     {
         // attack and strength arbitrarily chosen.
-        if (monster == rat)
-        {
-            strengthField = 10;
-        }
-        else if (monster == orc)
-        {
-            strengthField = 15;
-        }
-        else
-        {
-            strengthField = 20;
-        }
-    }
-
-
-    /**
-     * The enum types available.
-     */
-    public enum directionOfMon
-    {
-        /**
-         * This faces the monster to the north direction.
-         */
-        NORTH,
-        /**
-         * This faces the monster to the east direction.
-         */
-        EAST,
-        /**
-         * This faces the monster to the south direction.
-         */
-        SOUTH,
-        /**
-         * This faces the monster to the west direction.
-         */
-        WEST
+        //
     }
 }
