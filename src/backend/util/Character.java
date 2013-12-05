@@ -92,7 +92,7 @@ public class Character
     public void setBaseHealth(int health)
     {
         baseHealth = health;
-        totalHealth = health;
+        totalHealth = baseHealth;
         for (int i = 1; i < level; i++)
         {
             totalHealth += totalHealth * .1;
@@ -119,8 +119,8 @@ public class Character
     public void levelUp()
     {
         level++;
-        totalHealth += totalHealth*.1;
-        totalStrength += totalStrength *.1;
+        totalHealth += totalHealth * .1;
+        totalStrength += totalStrength * .1;
     }
 
     /**

@@ -13,27 +13,25 @@ import java.util.Random;
 public class Monsters
 {
     // full health
-    private int            healthField;
+    private int    healthField;
     // full capacity of attack
-    private int            strengthField;
-    private Random         rand;
+    private int    strengthField;
+    private Random rand;
+    private int level;
+
 
     // Constructor ----------------------------------------------------------
     /**
      * Create a new Monster object.
-     *
-     * @param health
-     *            The health of the monster
-     * @param strength
-     *            The strength of the monster.
      */
-    public Monsters(int health, int strength)
+    public Monsters()
     {
         // creates the random number generator to be used in following methods.
         rand = new Random();
+        level = 1;
 
-        healthField = health;
-        strengthField = strength;
+        healthField = 30;
+        strengthField = 5;
     }
 
 
@@ -69,21 +67,6 @@ public class Monsters
         return healthField;
     }
 
-
-    /**
-     * This is the setHealth() method, which sets the health based on the
-     * monster generated.
-     *
-     * @param monster
-     *            The monster that was generated.
-     */
-    public void setHealth(Monsters monster)
-    {
-        // attack and strength arbitrarily chosen.
-        //
-    }
-
-
     /**
      * This is the getStrength() method, which gets the strength based on the
      * monster generated.
@@ -96,17 +79,23 @@ public class Monsters
         return strengthField;
     }
 
+    /**
+     * Changes what level the character is at, and increments the health and
+     * strength in relation.
+     */
+    public void levelUp()
+    {
+        level++;
+        healthField += healthField * .2;
+        strengthField += strengthField * .2;
+    }
 
     /**
-     * This is the setStrength() method which sets the strength based on the
-     * character selected.
-     *
-     * @param monster
-     *            The character that was selected decides the stats.
+     * This gets the level of the character.
+     * @return the current level of the character
      */
-    public void setStrength(Monsters monster)
+    public int getLevel()
     {
-        // attack and strength arbitrarily chosen.
-        //
+        return level;
     }
 }
