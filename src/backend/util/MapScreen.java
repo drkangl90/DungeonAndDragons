@@ -65,7 +65,8 @@ public class MapScreen
             }
         }
 
-        character = new Character(0, 0);
+        character = new Character(0, 0, 0, 0, (int)side, (int)side);
+        character.setFillColor(Color.green);
         character.setLocation(new Location(0, 0));
         add(character);
         north.setEnabled(true);

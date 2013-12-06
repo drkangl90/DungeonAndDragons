@@ -59,6 +59,29 @@ public class Character
         setImage("combat103_woodelf");
     }
 
+    /**
+     * Create a new Character object on a cell of the maze.
+     *
+     * @param health
+     *            The health of the character
+     * @param strength
+     *            The strength of the character.
+     */
+    public Character(int health, int strength,
+        int left, int top, int right, int bottom)
+    {
+        super(left, top, right, bottom);
+        // creates the random number generator to be used in following methods.
+        rand = new Random();
+
+        level = 1;
+        baseHealth = health;
+        totalHealth = health;
+        baseStrength = strength;
+        totalStrength = strength;
+        setImage("combat103_woodelf");
+    }
+
 
     /**
      * This is the attack method of the character. It will return a random
