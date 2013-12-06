@@ -34,8 +34,8 @@ public class MapScreen
     private Button             east;
     private Button             west;
     private Button             fight;
-    private Button             defend;
-    private Button             flee;
+    //private Button             defend;
+    //private Button             flee;
     private ProgressBar        health;
     private directionOfChar    status;
     private OvalShape  start;
@@ -71,8 +71,8 @@ public class MapScreen
         east.setEnabled(true);
         west.setEnabled(true);
         fight.setEnabled(false);
-        defend.setEnabled(false);
-        flee.setEnabled(false);
+        //defend.setEnabled(false);
+        //flee.setEnabled(false);
     }
 
 
