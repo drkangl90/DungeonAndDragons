@@ -217,8 +217,12 @@ public class Character
      */
     public ILocation getLocation()
     {
-        return getLocation();
+        return new Location(x, y);
     }
+    /**public ILocation getLocation()
+    {
+        return getLocation();
+    }*/
 
 
     // ----------------------------------------------------------
@@ -229,7 +233,12 @@ public class Character
      *            if the status matches move the character to new location
      * @return returns the new location
      */
-    public void setLocation(directionOfChar status)
+    public void setLocation(ILocation loc)
+    {
+        x = loc.x();
+        y = loc.y();
+    }
+    /**public void setLocation(directionOfChar status)
     {
         if (status == directionOfChar.NORTH)
         {
@@ -247,6 +256,5 @@ public class Character
         {
             west = direction.west();
         }
-
-    }
+    }*/
 }

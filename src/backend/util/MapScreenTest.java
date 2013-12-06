@@ -27,9 +27,10 @@ public class MapScreenTest
     /**
      * Tests a click on the screen
      */
-    public void testFirstClick()
+    public void testCharacter()
     {
-        getScreen().onTouchDown(1, 1);
-        assertTrue(getScreen().isHasBeenClicked());
+        assertNotNull(getScreen().getCharacter());
+        assertEquals(getScreen().getCharacter().getLocation(),
+            new Location(0, 0));
     }
 }

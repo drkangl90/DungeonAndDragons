@@ -28,7 +28,6 @@ public class MapScreen
     private Character          character;
     private RectangleShape[][] mapArray;
     private float              side;
-    private boolean            hasBeenClicked = false; // for testing
     private Button             north;
     private Button             south;
     private Button             east;
@@ -67,6 +66,8 @@ public class MapScreen
         }
 
         character = new Character(0, 0);
+        character.setLocation(new Location(0, 0));
+        add(character);
         north.setEnabled(true);
         south.setEnabled(true);
         east.setEnabled(true);
@@ -86,28 +87,7 @@ public class MapScreen
      */
     public void onTouchDown(float x, float y)
     {
-        setHasBeenClicked(true);
-    }
 
-
-    // ----------------------------------------------------------
-    /**
-     * @return the hasBeenClicked
-     */
-    public boolean isHasBeenClicked()
-    {
-        return hasBeenClicked;
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * @param hasBeenClicked
-     *            the hasBeenClicked to set
-     */
-    public void setHasBeenClicked(boolean hasBeenClicked)
-    {
-        this.hasBeenClicked = true;
     }
 
 
@@ -169,22 +149,22 @@ public class MapScreen
         if (status == directionOfChar.NORTH)
         {
             character.setDirection(directionOfChar.NORTH);
-            character.setLocation(directionOfChar.NORTH);
+            //character.setLocation(directionOfChar.NORTH);
         }
         else if (status == directionOfChar.EAST)
         {
             character.setDirection(directionOfChar.EAST);
-            character.setLocation(directionOfChar.EAST);
+            //character.setLocation(directionOfChar.EAST);
         }
         else if (status == directionOfChar.SOUTH)
         {
             character.setDirection(directionOfChar.SOUTH);
-            character.setLocation(directionOfChar.SOUTH);
+            //character.setLocation(directionOfChar.SOUTH);
         }
         else if (status == directionOfChar.WEST)
         {
             character.setDirection(directionOfChar.WEST);
-            character.setLocation(directionOfChar.WEST);
+            //character.setLocation(directionOfChar.WEST);
         }
         else
         {
@@ -199,5 +179,13 @@ public class MapScreen
                 ((j * cellSize) + (cellSize / 2)));
             add(start);
         }
+    }
+
+    /**
+     * Accessor method for the character on screen.
+     */
+    public Character getCharacter()
+    {
+        return character;
     }
 }
