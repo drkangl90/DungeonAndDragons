@@ -72,7 +72,6 @@ public class MapScreen
         fight.setEnabled(false);
         defend.setEnabled(false);
         flee.setEnabled(false);
-
     }
 
 

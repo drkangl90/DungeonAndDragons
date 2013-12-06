@@ -202,7 +202,7 @@ public class Character
      */
     public Location getDirection()
     {
-        return new Location(x, y);
+        return getDirection();
     }
 
 
