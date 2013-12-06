@@ -63,6 +63,7 @@ public class MapScreen
                 mapArray[i][j] = tile;
             }
         }
+
         character = new Character(0, 0);
         north.setEnabled(true);
         south.setEnabled(true);

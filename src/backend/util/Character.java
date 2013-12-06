@@ -2,6 +2,7 @@ package backend.util;
 
 import sofia.graphics.ShapeView;
 import sofia.util.Random;
+import sofia.graphics.RectangleShape;
 
 // import java.util.Random;
 
@@ -15,7 +16,7 @@ import sofia.util.Random;
  * @version 11.15.2013
  */
 public class Character
-    extends ShapeView
+    extends RectangleShape
 {
 
     // full health
@@ -71,7 +72,7 @@ public class Character
      */
     public Character(int health, int strength)
     {
-        super(null, null);
+        super();
         // creates the random number generator to be used in following methods.
         rand = new Random();
 
@@ -80,6 +81,7 @@ public class Character
         totalHealth = health;
         baseStrength = strength;
         totalStrength = strength;
+        setImage("combat103_woodelf");
     }
 
 
