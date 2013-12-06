@@ -2,7 +2,7 @@ package backend.util;
 
 
 import sofia.graphics.OvalShape;
-import backend.util.Character.State;
+//import backend.util.Character.directionOfChar;
 import android.widget.ProgressBar;
 import android.widget.Button;
 import sofia.graphics.RectangleShape;
@@ -16,6 +16,7 @@ import sofia.graphics.Color;
  * details about its purpose, what abstraction it represents, and how to use it.
  *
  * @author Ben
+ * @author Alycia Rouffa (arouffa)
  * @author Mary-Wynn Rogers (marywynn)
  * @version Nov 15, 2013
  */
@@ -36,7 +37,7 @@ public class MapScreen
     private Button             defend;
     private Button             flee;
     private ProgressBar        health;
-    private State              status;
+    private directionOfChar    status;
     private OvalShape  start;
     private OvalShape  goal;
 
@@ -115,7 +116,7 @@ public class MapScreen
     public void northClicked()
     {
         // character moves north
-        status = State.NORTH;
+        status = directionOfChar.NORTH;
     }
 
 
@@ -125,7 +126,7 @@ public class MapScreen
     public void southClicked()
     {
         // character moves south
-        status = State.SOUTH;
+        status = directionOfChar.SOUTH;
     }
 
 
@@ -135,7 +136,7 @@ public class MapScreen
     public void eastClicked()
     {
         // character moves east
-        status = State.EAST;
+        status = directionOfChar.EAST;
     }
 
 
@@ -145,7 +146,7 @@ public class MapScreen
     public void westClicked()
     {
         // character moves west
-        status = State.WEST;
+        status = directionOfChar.WEST;
     }
 
 
@@ -164,25 +165,25 @@ public class MapScreen
         int j = (int)(y / cellSize);
         Location locat = new Location(i, j);
 
-        if (status == State.NORTH)
+        if (status == directionOfChar.NORTH)
         {
-            character.setDirection(State.NORTH);
-            character.setLocation(State.NORTH);
+            character.setDirection(directionOfChar.NORTH);
+            character.setLocation(directionOfChar.NORTH);
         }
-        else if (status == State.EAST)
+        else if (status == directionOfChar.EAST)
         {
-            character.setDirection(State.EAST);
-            character.setLocation(State.EAST);
+            character.setDirection(directionOfChar.EAST);
+            character.setLocation(directionOfChar.EAST);
         }
-        else if (status == State.SOUTH)
+        else if (status == directionOfChar.SOUTH)
         {
-            character.setDirection(State.SOUTH);
-            character.setLocation(State.SOUTH);
+            character.setDirection(directionOfChar.SOUTH);
+            character.setLocation(directionOfChar.SOUTH);
         }
-        else if (status == State.WEST)
+        else if (status == directionOfChar.WEST)
         {
-            character.setDirection(State.WEST);
-            character.setLocation(State.WEST);
+            character.setDirection(directionOfChar.WEST);
+            character.setLocation(directionOfChar.WEST);
         }
         else
         {
