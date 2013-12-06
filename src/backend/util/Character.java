@@ -14,22 +14,26 @@ import sofia.util.Random;
  * @author Mary-Wynn Rogers (marywynn)
  * @version 11.15.2013
  */
-public class Character extends ShapeView
+public class Character
+    extends ShapeView
 {
 
     // full health
-    private int      baseHealth;
-    private int      totalHealth;
+    private int       baseHealth;
+    private int       totalHealth;
     // full capacity of attack
-    private int      baseStrength;
-    private int      totalStrength;
+    private int       baseStrength;
+    private int       totalStrength;
 
-    private int      level;
-    private Random   rand;
-    private Location direction;
-    protected static int    x;
-    protected static int    y;
-    //protected State  status;
+    private int       level;
+    private Random    rand;
+    private Location  direction;
+    private int       x;
+    private int       y;
+    private ILocation north;
+    private ILocation east;
+    private ILocation south;
+    private ILocation west;
 
 
     /**
@@ -76,7 +80,6 @@ public class Character extends ShapeView
         totalHealth = health;
         baseStrength = strength;
         totalStrength = strength;
-
     }
 
 
@@ -187,11 +190,12 @@ public class Character extends ShapeView
     }
 
 
-
     // ----------------------------------------------------------
     /**
      * gets the direction of the character in the map
      *
+     * @param status
+     *            the status of the cell
      * @return returns the location of the character
      */
     public Location getDirection()
@@ -226,6 +230,48 @@ public class Character extends ShapeView
         }
     }
 
+
+    // ----------------------------------------------------------
+    /**
+     * gets the location of the character
+     * @param status the status of a cell
+     *
+     * @return returns the location character is currently at
+     */
+    public ILocation getLocation()
+    {
+        return getLocation();
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * sets the new location of the character
+     *
+     * @param status
+     *            if the status matches move the character to new location
+     * @return returns the new location
+     */
+    public void setLocation(State status)
+    {
+        if (status == State.NORTH)
+        {
+            north = direction.east();
+        }
+        else if (status == State.EAST)
+        {
+            east = direction.east();
+        }
+        else if (status == State.SOUTH)
+        {
+            south = direction.south();
+        }
+        else
+        {
+            west = direction.west();
+        }
+
+    }
 }
 
 //

@@ -1,11 +1,14 @@
 package backend.util;
 
+
+import sofia.graphics.OvalShape;
 import backend.util.Character.State;
 import android.widget.ProgressBar;
 import android.widget.Button;
 import sofia.graphics.RectangleShape;
 import sofia.app.ShapeScreen;
 import sofia.graphics.Color;
+
 
 // -------------------------------------------------------------------------
 /**
@@ -21,6 +24,7 @@ public class MapScreen
     extends ShapeScreen
 {
     private Map                map;
+    private Character          character;
     private RectangleShape[][] mapArray;
     private float              side;
     private boolean            hasBeenClicked = false; // for testing
@@ -32,28 +36,9 @@ public class MapScreen
     private Button             defend;
     private Button             flee;
     private ProgressBar        health;
-    //protected State            status;
-
-
-//    public enum State
-//    {
-//        /**
-//         * This faces the character to the north direction.
-//         */
-//        NORTH,
-//        /**
-//         * This faces the character to the east direction.
-//         */
-//        EAST,
-//        /**
-//         * This faces the character to the south direction.
-//         */
-//        SOUTH,
-//        /**
-//         * This faces the character to the west direction.
-//         */
-//        WEST
-//    }
+    private State              status;
+    private OvalShape  start;
+    private OvalShape  goal;
 
 
     public void initialize()
@@ -78,6 +63,15 @@ public class MapScreen
                 mapArray[i][j] = tile;
             }
         }
+        character = new Character(0, 0);
+        north.setEnabled(true);
+        south.setEnabled(true);
+        east.setEnabled(true);
+        west.setEnabled(true);
+        fight.setEnabled(false);
+        defend.setEnabled(false);
+        flee.setEnabled(false);
+
     }
 
 
@@ -121,6 +115,7 @@ public class MapScreen
     public void northClicked()
     {
         // character moves north
+        status = State.NORTH;
     }
 
 
@@ -130,6 +125,7 @@ public class MapScreen
     public void southClicked()
     {
         // character moves south
+        status = State.SOUTH;
     }
 
 
@@ -139,6 +135,7 @@ public class MapScreen
     public void eastClicked()
     {
         // character moves east
+        status = State.EAST;
     }
 
 
@@ -148,5 +145,57 @@ public class MapScreen
     public void westClicked()
     {
         // character moves west
+        status = State.WEST;
+    }
+
+
+    /**
+     * handles the touch events for the maze solver
+     *
+     * @param x
+     *            the x coordinate
+     * @param y
+     *            the y coordinate
+     */
+    public void processTouch(float x, float y)
+    {
+        float cellSize = Math.min(getWidth(), getHeight()) / 8;
+        int i = (int)(x / cellSize);
+        int j = (int)(y / cellSize);
+        Location locat = new Location(i, j);
+
+        if (status == State.NORTH)
+        {
+            character.setDirection(State.NORTH);
+            character.setLocation(State.NORTH);
+        }
+        else if (status == State.EAST)
+        {
+            character.setDirection(State.EAST);
+            character.setLocation(State.EAST);
+        }
+        else if (status == State.SOUTH)
+        {
+            character.setDirection(State.SOUTH);
+            character.setLocation(State.SOUTH);
+        }
+        else if (status == State.WEST)
+        {
+            character.setDirection(State.WEST);
+            character.setLocation(State.WEST);
+        }
+        else
+        {
+            map.setGoalLocation(locat);
+            goal.setPosition(
+                ((i + cellSize) + (cellSize / 2)),
+                ((j * cellSize) + (cellSize / 2)));
+            add(goal);
+            map.setStartLocation(locat);
+            start.setPosition(
+                ((i + cellSize) + (cellSize / 2)),
+                ((j * cellSize) + (cellSize / 2)));
+            add(start);
+        }
     }
 }
