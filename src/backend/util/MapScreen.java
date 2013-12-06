@@ -48,6 +48,7 @@ public class MapScreen
         mapArray = new RectangleShape[8][8];
         side = Math.min(getWidth(), getHeight());
         side /= 8;
+        side--;
         for (int i = 0; i < 8; i++)
         {
             for (int j = 0; j < 8; j++)
