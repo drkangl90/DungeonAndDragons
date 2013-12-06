@@ -1,6 +1,6 @@
 package backend.util;
 
-import backend.util.Character.State;
+//import backend.util.Character.directionOfChar;
 
 // -------------------------------------------------------------------------
 /**
@@ -26,30 +26,6 @@ public class Location
      */
     protected int y;
     //private State status;
-
-
-    /**
-     * The enum types available.
-     */
-    public enum State
-    {
-        /**
-         * This faces the character to the north direction.
-         */
-        NORTH,
-        /**
-         * This faces the character to the east direction.
-         */
-        EAST,
-        /**
-         * This faces the character to the south direction.
-         */
-        SOUTH,
-        /**
-         * This faces the character to the west direction.
-         */
-        WEST
-    }
 
 
     // ----------------------------------------------------------
