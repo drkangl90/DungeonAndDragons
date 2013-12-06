@@ -3,24 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
-    <Button
-        android:id="@+id/east"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/south"
-        android:layout_alignBottom="@+id/south"
-        android:layout_toRightOf="@+id/south"
-        android:text="@string/east" />
-
     <sofia.graphics.ShapeView
         android:id="@+id/shapeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/fight"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/south" />
+        android:layout_alignParentRight="true" />
 
     <ProgressBar
         android:id="@+id/health"
@@ -29,35 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/east"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/east"
         android:layout_toRightOf="@+id/east" />
-
-    <Button
-        android:id="@+id/north"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/north" />
-
-    <Button
-        android:id="@+id/west"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/north"
-        android:text="@string/west" />
-
-    <Button
-        android:id="@+id/south"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/west"
-        android:text="@string/south" />
 
     <Button
         android:id="@+id/fight"
@@ -68,5 +30,42 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:text="@string/fight" />
+
+    <Button
+        android:id="@+id/north"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fight"
+        android:layout_alignParentLeft="true"
+        android:text="@string/north" />
+
+    <Button
+        android:id="@+id/west"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fight"
+        android:layout_toRightOf="@+id/north"
+        android:text="@string/west" />
+
+    <Button
+        android:id="@+id/south"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fight"
+        android:layout_toRightOf="@+id/west"
+        android:text="@string/south" />
+    
+    <Button
+        android:id="@+id/east"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/south"
+        android:layout_alignBottom="@+id/south"
+        android:layout_toRightOf="@+id/south"
+        android:text="@string/east" />
 
 </RelativeLayout>

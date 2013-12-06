@@ -65,7 +65,7 @@ public class MapScreen
             }
         }
 
-        character = new Character(0, 0, 0, 0, (int)side, (int)side);
+        character = new Character(0, 0, 1, 1, (int)side, (int)side);
         character.setFillColor(Color.green);
         character.setLocation(new Location(0, 0));
         add(character);
@@ -99,6 +99,7 @@ public class MapScreen
     {
         // character moves north
         status = directionOfChar.NORTH;
+        character.moveBy(0, -side);
     }
 
 
@@ -109,6 +110,7 @@ public class MapScreen
     {
         // character moves south
         status = directionOfChar.SOUTH;
+        character.moveBy(0, side);
     }
 
 
@@ -119,6 +121,7 @@ public class MapScreen
     {
         // character moves east
         status = directionOfChar.EAST;
+        character.moveBy(side, 0);
     }
 
 
@@ -129,6 +132,7 @@ public class MapScreen
     {
         // character moves west
         status = directionOfChar.WEST;
+        character.moveBy(-side, 0);
     }
 
 
