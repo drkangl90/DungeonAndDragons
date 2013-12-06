@@ -31,9 +31,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int fight=0x7f070004;
         public static final int flee=0x7f070009;
         public static final int health=0x7f070005;
-        public static final int mapLevel=0x7f07000a;
         public static final int north=0x7f070006;
-        public static final int northButton=0x7f07000b;
         public static final int shapeView=0x7f070003;
         public static final int south=0x7f070002;
         public static final int west=0x7f070007;
