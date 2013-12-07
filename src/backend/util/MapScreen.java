@@ -42,7 +42,7 @@ public class MapScreen
     private directionOfChar    status;
     private OvalShape  start;
     private OvalShape  goal;
-    private HashMap<ILocation, Monsters> monsterList;
+    private Monsters[][]       monsterMap;
     private Key key;
     private boolean hasKey;
 
@@ -85,7 +85,7 @@ public class MapScreen
         fight.setEnabled(true);
         //defend.setEnabled(false);
         //flee.setEnabled(false);
-        monsterList = new HashMap<ILocation, Monsters>();
+        monsterMap = new Monsters[size][size];
         addMonsters();
         addKey(7, 0);
         hasKey = false;
@@ -131,7 +131,7 @@ public class MapScreen
 
         if (map.getCell(loc) == MapCell.MONSTER)
         {
-            Monsters mon = monsterList.get(loc);
+            Monsters mon = monsterMap[loc.x()][loc.y()];
             mon.takeDamage(character.attack());
 
             if (mon.getHealth() <= 0)
@@ -155,7 +155,7 @@ public class MapScreen
             (loc.y() + 1) * side + 1);
         map.setCell(loc, MapCell.MONSTER);
         add(mon);
-        monsterList.put(loc, mon);
+        monsterMap[loc.x()][loc.y()] = mon;
     }
 
 
