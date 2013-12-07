@@ -25,6 +25,7 @@ public class MapScreen
     extends ShapeScreen
 {
     private Map                map;
+    private int                size;
     private Character          character;
     private RectangleShape[][] mapArray;
     private float              side;
@@ -43,14 +44,15 @@ public class MapScreen
 
     public void initialize()
     {
-        map = new Map(8);
-        mapArray = new RectangleShape[8][8];
+        size = 8;
+        map = new Map(size);
+        mapArray = new RectangleShape[size][size];
         side = Math.min(getWidth(), getHeight());
-        side /= 8;
+        side /= size;
         side--;
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < size; i++)
         {
-            for (int j = 0; j < 8; j++)
+            for (int j = 0; j < size; j++)
             {
                 RectangleShape tile =
                     new RectangleShape(
@@ -99,9 +101,14 @@ public class MapScreen
     {
         // character moves north
         status = directionOfChar.NORTH;
-        character.moveBy(0, -side);
+        if (character.getLocation().y() > 0)
+        {
+            character.moveBy(0, -side);
+            character.setLocation(new Location(
+                character.getLocation().x(),
+                character.getLocation().y() - 1));
+        }
     }
-
 
     /**
      * moves the character south
@@ -110,7 +117,13 @@ public class MapScreen
     {
         // character moves south
         status = directionOfChar.SOUTH;
-        character.moveBy(0, side);
+        if (character.getLocation().y() < size - 1)
+        {
+            character.moveBy(0, side);
+            character.setLocation(new Location(
+                character.getLocation().x(),
+                character.getLocation().y() + 1));
+        }
     }
 
 
@@ -121,7 +134,13 @@ public class MapScreen
     {
         // character moves east
         status = directionOfChar.EAST;
-        character.moveBy(side, 0);
+        if (character.getLocation().x() < size - 1)
+        {
+            character.moveBy(side, 0);
+            character.setLocation(new Location(
+                character.getLocation().x() + 1,
+                character.getLocation().y()));
+        }
     }
 
 
@@ -132,7 +151,13 @@ public class MapScreen
     {
         // character moves west
         status = directionOfChar.WEST;
-        character.moveBy(-side, 0);
+        if (character.getLocation().x() > 0)
+        {
+            character.moveBy(-side, 0);
+            character.setLocation(new Location(
+                character.getLocation().x() - 1,
+                character.getLocation().y()));
+        }
     }
 
 
