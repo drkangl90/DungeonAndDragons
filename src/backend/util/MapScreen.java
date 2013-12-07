@@ -177,7 +177,7 @@ public class MapScreen
      * @param y
      *            the y coordinate
      */
-    public void processTouch(float x, float y)
+    /*public void processTouch(float x, float y)
     {
         float cellSize = Math.min(getWidth(), getHeight()) / 8;
         int i = (int)(x / cellSize);
@@ -217,7 +217,7 @@ public class MapScreen
                 ((j * cellSize) + (cellSize / 2)));
             add(start);
         }
-    }
+    }*/
 
     /**
      * Accessor method for the character on screen.
