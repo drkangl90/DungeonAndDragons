@@ -129,11 +129,16 @@ public class MapScreen
             loc = loc.west();
         }
 
-        if (monsterList.containsKey(loc))
+        if (map.getCell(loc) == MapCell.MONSTER)
         {
             Monsters mon = monsterList.get(loc);
+            mon.takeDamage(character.attack());
 
-            character.attack();
+            if (mon.getHealth() <= 0)
+            {
+                mon.remove();
+                map.setCell(loc, MapCell.UNEXPLORED);
+            }
         }
     }
 
@@ -322,7 +327,7 @@ public class MapScreen
     {
         if (character.getLocation() == key.getLocation())
         {
-            remove(key); //You Win
+            key.remove(); //You Win
         }
     }
 }
