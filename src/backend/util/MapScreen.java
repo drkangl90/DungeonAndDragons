@@ -94,6 +94,23 @@ public class MapScreen
 
     }
 
+    /**
+     * Causes a character to attack a monster, if present.
+     */
+    public void fightClicked()
+    {
+
+    }
+
+
+    /**
+     *
+     */
+    public void addMonster(ILocation loc)
+    {
+
+    }
+
 
     /**
      * moves the character north
@@ -144,13 +161,6 @@ public class MapScreen
         }
     }
 
-    /**
-     * Causes a character to attack a monster, if present.
-     */
-    public void fightClicked()
-    {
-
-    }
 
     /**
      * moves the character west

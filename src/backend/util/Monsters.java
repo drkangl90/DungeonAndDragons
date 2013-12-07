@@ -18,6 +18,8 @@ public class Monsters
     private int    strengthField;
     private Random rand;
     private int level;
+    private int       x;
+    private int       y;
 
 
     // Constructor ----------------------------------------------------------
@@ -97,6 +99,12 @@ public class Monsters
     public int getLevel()
     {
         return level;
+    }
+
+    public void setLocation(ILocation loc)
+    {
+        x = loc.x();
+        y = loc.y();
     }
 }
 //=======
