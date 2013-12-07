@@ -109,7 +109,7 @@ public class MapScreen
 
 
     /**
-     *
+     * @param loc
      */
     public void addMonster(ILocation loc)
     {
@@ -132,6 +132,29 @@ public class MapScreen
         addMonster(new Location(2, 6));
         addMonster(new Location(7, 7));
     }
+
+    /**
+    * Sets the location and adds to the screen
+    * @param location The location of the tile of the key.
+    */
+   public void addKey(ILocation location)
+   {
+       Key key = new Key(
+           location.x() * side + 1,
+           location.y() * side + 1,
+           (location.x() + 1) * side + 1,
+           (location.y() + 1) * side + 1);
+       key.setFillColor(Color.gold);
+       add(key);
+   }
+
+   /**
+    * Sets the physical location of the key
+    */
+   public void keyLocation()
+   {
+       addKey(new Location(7, 0));
+   }
 
 
 

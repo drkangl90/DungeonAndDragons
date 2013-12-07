@@ -20,7 +20,7 @@ public class Key extends RectangleShape
      * @param right The right position of the key
      * @param bottom The bottom position of the key
      */
-    public Key(int left, int top, int right, int bottom)
+    public Key(float left, float top, float right, float bottom)
     {
         super(left, top, right, bottom);
     }
