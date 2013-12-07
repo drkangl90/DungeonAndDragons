@@ -317,7 +317,7 @@ public class MapScreen
      */
     public void reachedGoal()
     {
-        if (character.getLocation() == key.getLocation())
+        if (character.getLocation().equals(key.getLocation()))
         {
             key.remove(); //You Win
         }
