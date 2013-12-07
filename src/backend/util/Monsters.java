@@ -49,7 +49,7 @@ public class Monsters
     public Monsters(float left, float top, float right, float bottom)
     {
         super(left, top, right, bottom);
-        setFillColor(Color.red);
+        setImage("monster1");
         // creates the random number generator to be used in following methods.
         rand = new Random();
         level = 1;

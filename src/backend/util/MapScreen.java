@@ -72,7 +72,7 @@ public class MapScreen
         }
 
         character = new Character(30, 20, 1, 1, (int)side, (int)side);
-        character.setFillColor(Color.green);
+        //character.setFillColor(Color.green);
         character.setLocation(new Location(0, 0));
         add(character);
         status = directionOfChar.EAST;
