@@ -86,7 +86,7 @@ public class MapScreen
         //flee.setEnabled(false);
         monsterList = new HashMap<ILocation, Monsters>();
         addMonsters();
-        keyLocation();
+        addKey(7, 0);
         hasKey = false;
     }
 
@@ -166,25 +166,16 @@ public class MapScreen
     * Sets the location and adds to the screen
     * @param location The location of the tile of the key.
     */
-   public void addKey(ILocation location)
+   public void addKey(int x, int y)
    {
        key = new Key(
-           location.x() * side + 1,
-           location.y() * side + 1,
-           (location.x() + 1) * side + 1,
-           (location.y() + 1) * side + 1);
+           x * side + 1,
+           y * side + 1,
+           (x + 1) * side + 1,
+           (y + 1) * side + 1);
        key.setFillColor(Color.gold);
        add(key);
    }
-
-   /**
-    * Sets the physical location of the key
-    */
-   public void keyLocation()
-   {
-       key.setLocation();
-   }
-
 
 
     /**

@@ -44,8 +44,8 @@ public class Key extends RectangleShape
      *
      * @return returns the location that the key is
      */
-    public ILocation setLocation()
+    public void setLocation(int x, int y)
     {
-        return keyLoc;
+        keyLoc = new Location(x, y);
     }
 }
