@@ -83,6 +83,7 @@ public class MapScreen
         //flee.setEnabled(false);
         monsterList = new HashMap<ILocation, Monsters>();
         addMonsters();
+        keyLocation();
     }
 
 
