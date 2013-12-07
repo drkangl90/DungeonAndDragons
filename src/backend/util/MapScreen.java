@@ -71,6 +71,7 @@ public class MapScreen
         character.setFillColor(Color.green);
         character.setLocation(new Location(0, 0));
         add(character);
+        status = directionOfChar.EAST;
         north.setEnabled(true);
         south.setEnabled(true);
         east.setEnabled(true);
@@ -143,6 +144,13 @@ public class MapScreen
         }
     }
 
+    /**
+     * Causes a character to attack a monster, if present.
+     */
+    public void fightClicked()
+    {
+
+    }
 
     /**
      * moves the character west
