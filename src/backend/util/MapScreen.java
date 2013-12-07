@@ -1,6 +1,8 @@
 package backend.util;
 
 
+import sofia.graphics.Anchor;
+import sofia.graphics.TextShape;
 import backend.util.Map.MapCell;
 import java.util.HashMap;
 import sofia.graphics.OvalShape;
@@ -44,7 +46,7 @@ public class MapScreen
     private OvalShape  goal;
     private Monsters[][]       monsterMap;
     private Key key;
-
+    private TextShape text;
 
     public void initialize()
     {
@@ -138,12 +140,15 @@ public class MapScreen
         {
             Monsters mon = monsterMap[loc.x()][loc.y()];
             mon.takeDamage(character.attack());
+            //text.setText("Attacking");
 
             character.takeDamage(mon.attack());
 
             if (character.getHealth() <= 0)
             {
                 character.remove();
+                //text.setText("you die");
+
                 //you lose
             }
 
