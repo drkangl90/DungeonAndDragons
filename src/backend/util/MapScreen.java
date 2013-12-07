@@ -122,7 +122,11 @@ public class MapScreen
         {
             loc = loc.west();
         }
-        character.attack();
+
+        if (monsterList.containsKey(loc))
+        {
+            character.attack();
+        }
     }
 
 
