@@ -50,7 +50,11 @@ public class Map extends RectangleShape
         /**
          * cell that can't be traversed
          */
-        INVALID_CELL;
+        INVALID_CELL,
+        /**
+         * cell that contains a Monster
+         */
+        MONSTER;
     }
 
 

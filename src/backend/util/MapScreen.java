@@ -1,6 +1,7 @@
 package backend.util;
 
 
+import backend.util.Map.MapCell;
 import java.util.HashMap;
 import sofia.graphics.OvalShape;
 //import backend.util.Character.directionOfChar;
@@ -147,6 +148,7 @@ public class MapScreen
             loc.y() * side + 1,
             (loc.x() + 1) * side + 1,
             (loc.y() + 1) * side + 1);
+        map.setCell(loc, MapCell.MONSTER);
         add(mon);
         monsterList.put(loc, mon);
     }
@@ -185,7 +187,8 @@ public class MapScreen
     {
         // character moves north
         status = directionOfChar.NORTH;
-        if (character.getLocation().y() > 0)
+        ILocation loc = character.getLocation().north();
+        if (character.getLocation().y() > 0 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(0, -side);
             character.setLocation(new Location(
@@ -201,7 +204,8 @@ public class MapScreen
     {
         // character moves south
         status = directionOfChar.SOUTH;
-        if (character.getLocation().y() < size - 1)
+        ILocation loc = character.getLocation().south();
+        if (character.getLocation().y() < size - 1 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(0, side);
             character.setLocation(new Location(
@@ -218,7 +222,8 @@ public class MapScreen
     {
         // character moves east
         status = directionOfChar.EAST;
-        if (character.getLocation().x() < size - 1)
+        ILocation loc = character.getLocation().east();
+        if (character.getLocation().x() < size - 1 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(side, 0);
             character.setLocation(new Location(
@@ -235,7 +240,8 @@ public class MapScreen
     {
         // character moves west
         status = directionOfChar.WEST;
-        if (character.getLocation().x() > 0)
+        ILocation loc = character.getLocation().west();
+        if (character.getLocation().x() > 0 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(-side, 0);
             character.setLocation(new Location(
