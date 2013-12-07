@@ -42,6 +42,7 @@ public class MapScreen
     private OvalShape  start;
     private OvalShape  goal;
     private HashMap<ILocation, Monsters> monsterList;
+    private Key key;
     private boolean hasKey;
 
 
@@ -166,7 +167,7 @@ public class MapScreen
     */
    public void addKey(ILocation location)
    {
-       Key key = new Key(
+       key = new Key(
            location.x() * side + 1,
            location.y() * side + 1,
            (location.x() + 1) * side + 1,
@@ -180,7 +181,7 @@ public class MapScreen
     */
    public void keyLocation()
    {
-       addKey(new Location(7, 0));
+       key.setLocation();
    }
 
 
@@ -317,6 +318,7 @@ public class MapScreen
     public void grabKey()
     {
         //if the character cell = key cell
+        //if (character.getLocation() = key.getLocation())
         hasKey = true;
         //remove the key?
     }

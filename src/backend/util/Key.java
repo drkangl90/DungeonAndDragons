@@ -13,6 +13,7 @@ import sofia.graphics.RectangleShape;
  */
 public class Key extends RectangleShape
 {
+    private Location keyLoc;
 
     /**
      * Place a description of your method here.
@@ -25,5 +26,26 @@ public class Key extends RectangleShape
     {
         super(left, top, right, bottom);
         setFillColor(Color.gold);
+        keyLoc = new Location(7, 0);
+    }
+
+    /**
+     * gets the location of the key
+     *
+     * @return returns the location key is
+     */
+    public ILocation getLocation()
+    {
+        return keyLoc;
+    }
+
+    /**
+     * sets the location of the key
+     *
+     * @return returns the location key is
+     */
+    public ILocation setLocation()
+    {
+        return keyLoc;
     }
 }
