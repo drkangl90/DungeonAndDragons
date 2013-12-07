@@ -86,6 +86,7 @@ public class MapScreen
         //defend.setEnabled(false);
         //flee.setEnabled(false);
         monsterMap = new Monsters[size][size];
+        monsterMap = null;
         addMonsters();
         addKey(7, 0);
         hasKey = false;
@@ -138,6 +139,7 @@ public class MapScreen
             {
                 mon.remove();
                 map.setCell(loc, MapCell.UNEXPLORED);
+                monsterMap[loc.x()][loc.y()] = null;
             }
         }
     }
@@ -321,7 +323,7 @@ public class MapScreen
      */
     public void reachedGoal()
     {
-        if (character.getLocation().equals(key.getLocation()))
+        if (character.getLocation().equals(key.getLocation()) && monsterMap == null)
         {
             key.remove(); //You Win
         }
