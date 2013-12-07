@@ -1,5 +1,7 @@
 package backend.util;
 
+import sofia.graphics.Color;
+import sofia.graphics.RectangleShape;
 import java.util.Random;
 
 // -------------------------------------------------------------------------
@@ -11,6 +13,7 @@ import java.util.Random;
  * @version 11.15.2013
  */
 public class Monsters
+    extends RectangleShape
 {
     // full health
     private int    healthField;
@@ -28,6 +31,21 @@ public class Monsters
      */
     public Monsters()
     {
+        // creates the random number generator to be used in following methods.
+        rand = new Random();
+        level = 1;
+
+        healthField = 30;
+        strengthField = 5;
+    }
+
+    /**
+     * Create a new Monster object.
+     */
+    public Monsters(float left, float top, float right, float bottom)
+    {
+        super(left, top, right, bottom);
+        setFillColor(Color.red);
         // creates the random number generator to be used in following methods.
         rand = new Random();
         level = 1;

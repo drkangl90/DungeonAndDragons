@@ -79,6 +79,7 @@ public class MapScreen
         fight.setEnabled(false);
         //defend.setEnabled(false);
         //flee.setEnabled(false);
+        addMonsters();
     }
 
 
@@ -108,8 +109,25 @@ public class MapScreen
      */
     public void addMonster(ILocation loc)
     {
-
+        Monsters mon = new Monsters(
+            loc.x() * side + 1,
+            loc.y() * side + 1,
+            (loc.x() + 1) * side + 1,
+            (loc.y() + 1) * side + 1);
+        add(mon);
     }
+
+
+    /**
+     *
+     */
+    public void addMonsters()
+    {
+        addMonster(new Location(3, 3));
+        addMonster(new Location(2, 6));
+        addMonster(new Location(7, 7));
+    }
+
 
 
     /**
