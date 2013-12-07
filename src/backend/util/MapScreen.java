@@ -69,7 +69,7 @@ public class MapScreen
             }
         }
 
-        character = new Character(0, 0, 1, 1, (int)side, (int)side);
+        character = new Character(30, 20, 1, 1, (int)side, (int)side);
         character.setFillColor(Color.green);
         character.setLocation(new Location(0, 0));
         add(character);
@@ -78,7 +78,7 @@ public class MapScreen
         south.setEnabled(true);
         east.setEnabled(true);
         west.setEnabled(true);
-        fight.setEnabled(false);
+        fight.setEnabled(true);
         //defend.setEnabled(false);
         //flee.setEnabled(false);
         monsterList = new HashMap<ILocation, Monsters>();
@@ -126,6 +126,8 @@ public class MapScreen
 
         if (monsterList.containsKey(loc))
         {
+            Monsters mon = monsterList.get(loc);
+
             character.attack();
         }
     }
