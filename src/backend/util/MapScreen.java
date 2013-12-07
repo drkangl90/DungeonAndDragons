@@ -42,6 +42,7 @@ public class MapScreen
     private OvalShape  start;
     private OvalShape  goal;
     private HashMap<ILocation, Monsters> monsterList;
+    private boolean hasKey;
 
 
     public void initialize()
@@ -84,6 +85,7 @@ public class MapScreen
         monsterList = new HashMap<ILocation, Monsters>();
         addMonsters();
         keyLocation();
+        hasKey = false;
     }
 
 
@@ -250,14 +252,14 @@ public class MapScreen
     }
 
 
-    /**
-     * handles the touch events for the maze solver
-     *
-     * @param x
-     *            the x coordinate
-     * @param y
-     *            the y coordinate
-     */
+//    /**
+//     * handles the touch events for the maze solver
+//     *
+//     * @param x
+//     *            the x coordinate
+//     * @param y
+//     *            the y coordinate
+//     */
     /*public void processTouch(float x, float y)
     {
         float cellSize = Math.min(getWidth(), getHeight()) / 8;
@@ -302,9 +304,35 @@ public class MapScreen
 
     /**
      * Accessor method for the character on screen.
+     * @return returns the character being called.
      */
     public Character getCharacter()
     {
         return character;
+    }
+
+    /**
+     * Grabbing the key.
+     */
+    public void grabKey()
+    {
+        //if the character cell = key cell
+        hasKey = true;
+        //remove the key?
+    }
+
+    /**
+     * Reaching the goal.
+     */
+    public void reachedGoal()
+    {
+        if (hasKey != true)
+        {
+            //nothing happens
+        }
+        else
+        {
+            //Yay you won!
+        }
     }
 }
