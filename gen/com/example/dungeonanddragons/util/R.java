@@ -23,10 +23,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class drawable {
         public static final int combat103_woodelf=0x7f020000;
+<<<<<<< HEAD
         public static final int ic_launcher=0x7f020001;
         public static final int monster1=0x7f020002;
         public static final int monster2=0x7f020003;
         public static final int monster3=0x7f020004;
+=======
+        public static final int grass=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int monster1=0x7f020003;
+        public static final int monster2=0x7f020004;
+        public static final int monster3=0x7f020005;
+>>>>>>> there is grass!!
     }
     public static final class id {
         public static final int east=0x7f070003;

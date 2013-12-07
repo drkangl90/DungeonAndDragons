@@ -65,7 +65,8 @@ public class MapScreen
                         (i + 1) * side,
                         (j + 1) * side);
                 tile.setColor(Color.white);
-                tile.setFillColor(Color.black);
+                tile.setImage("grass");
+                //tile.setFillColor(Color.black);
                 add(tile);
                 mapArray[i][j] = tile;
             }

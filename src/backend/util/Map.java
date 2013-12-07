@@ -1,5 +1,6 @@
 package backend.util;
 
+import sofia.graphics.RectangleShape;
 import java.util.Stack;
 
 // -------------------------------------------------------------------------
@@ -12,7 +13,7 @@ import java.util.Stack;
  * @author Mary-Wynn Rogers (marywynn)
  * @version 2013.11.11
  */
-public class Map
+public class Map extends RectangleShape
 {
     private int                size;
     private MapCell[][]        world;
@@ -70,6 +71,7 @@ public class Map
             {
                 Location club = new Location(x, y);
                 setCell(club, MapCell.UNEXPLORED);
+                //setImage("grass");
             }
         }
         start = new Location(0, 0);
