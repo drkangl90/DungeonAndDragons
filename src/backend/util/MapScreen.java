@@ -139,6 +139,14 @@ public class MapScreen
             Monsters mon = monsterMap[loc.x()][loc.y()];
             mon.takeDamage(character.attack());
 
+            character.takeDamage(mon.attack());
+
+            if (character.getHealth() <= 0)
+            {
+                character.remove();
+                //you lose
+            }
+
             if (mon.getHealth() <= 0)
             {
                 mon.remove();

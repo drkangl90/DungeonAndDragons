@@ -113,6 +113,12 @@ public class Character
     }
 
 
+    public void takeDamage(int damage)
+    {
+        totalHealth -= damage;
+    }
+
+
     /**
      * This is the getHeatlh() method, which gets the health of the character.
      *
