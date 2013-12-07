@@ -44,7 +44,6 @@ public class MapScreen
     private OvalShape  goal;
     private Monsters[][]       monsterMap;
     private Key key;
-    private boolean hasKey;
 
 
     public void initialize()
@@ -86,10 +85,15 @@ public class MapScreen
         //defend.setEnabled(false);
         //flee.setEnabled(false);
         monsterMap = new Monsters[size][size];
-        monsterMap = null;
+        for (Monsters[] row : monsterMap)
+        {
+            for (Monsters mon : row)
+            {
+                mon = null;
+            }
+        }
         addMonsters();
         addKey(7, 0);
-        hasKey = false;
     }
 
 
@@ -323,7 +327,20 @@ public class MapScreen
      */
     public void reachedGoal()
     {
-        if (character.getLocation().equals(key.getLocation()) && monsterMap == null)
+        boolean allDead = true;
+
+        for (Monsters[] row : monsterMap)
+        {
+            for (Monsters mon : row)
+            {
+                if (mon != null)
+                {
+                    allDead = false;
+                }
+            }
+        }
+
+        if (character.getLocation().equals(key.getLocation()) && allDead)
         {
             key.remove(); //You Win
         }
