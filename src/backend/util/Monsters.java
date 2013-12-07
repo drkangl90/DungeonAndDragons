@@ -133,9 +133,9 @@ public class Monsters
         y = loc.y();
     }
 
-    public void takeDamage()
+    public void takeDamage(int damage)
     {
-
+        healthField -= damage;
     }
 }
 
