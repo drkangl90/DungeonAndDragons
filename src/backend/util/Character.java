@@ -61,12 +61,16 @@ public class Character
     }
 
     /**
-     * Create a new Character object on a cell of the maze.
+     * Create a new Character object on a cell of the map.
      *
      * @param health
      *            The health of the character
      * @param strength
      *            The strength of the character.
+     * @param left The left position of the Character
+     * @param top The top position of the Character
+     * @param right The right position of the Character
+     * @param bottom The bottom position of the Character
      */
     public Character(int health, int strength,
         int left, int top, int right, int bottom)
