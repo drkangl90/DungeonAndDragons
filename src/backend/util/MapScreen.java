@@ -318,9 +318,11 @@ public class MapScreen
     public void grabKey()
     {
         //if the character cell = key cell
-        //if (character.getLocation() = key.getLocation())
-        hasKey = true;
-        //remove the key?
+        if (character.getLocation() == key.getLocation())
+        {
+            hasKey = true;
+            remove(key);
+        }
     }
 
     /**

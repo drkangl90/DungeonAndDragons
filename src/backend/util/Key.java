@@ -32,7 +32,7 @@ public class Key extends RectangleShape
     /**
      * gets the location of the key
      *
-     * @return returns the location key is
+     * @return returns the location that the key is
      */
     public ILocation getLocation()
     {
@@ -42,7 +42,7 @@ public class Key extends RectangleShape
     /**
      * sets the location of the key
      *
-     * @return returns the location key is
+     * @return returns the location that the key is
      */
     public ILocation setLocation()
     {
