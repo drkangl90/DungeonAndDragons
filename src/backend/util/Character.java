@@ -13,6 +13,7 @@ import sofia.graphics.RectangleShape;
  *
  * @author Alycia Rouffa (arouffa)
  * @author Mary-Wynn Rogers (marywynn)
+ * @author Ben Robohn (brobohn)
  * @version 11.15.2013
  */
 public class Character
@@ -234,7 +235,6 @@ public class Character
     // ----------------------------------------------------------
     /**
      * gets the location of the character
-     * @param status the status of a cell
      *
      * @return returns the location character is currently at
      */
@@ -252,9 +252,8 @@ public class Character
     /**
      * sets the new location of the character
      *
-     * @param status
+     * @param loc
      *            if the status matches move the character to new location
-     * @return returns the new location
      */
     public void setLocation(ILocation loc)
     {
