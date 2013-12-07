@@ -194,6 +194,7 @@ public class MapScreen
             character.setLocation(new Location(
                 character.getLocation().x(),
                 character.getLocation().y() - 1));
+            reachedGoal();
         }
     }
 
@@ -211,6 +212,7 @@ public class MapScreen
             character.setLocation(new Location(
                 character.getLocation().x(),
                 character.getLocation().y() + 1));
+            reachedGoal();
         }
     }
 
@@ -229,6 +231,7 @@ public class MapScreen
             character.setLocation(new Location(
                 character.getLocation().x() + 1,
                 character.getLocation().y()));
+            reachedGoal();
         }
     }
 
@@ -247,6 +250,7 @@ public class MapScreen
             character.setLocation(new Location(
                 character.getLocation().x() - 1,
                 character.getLocation().y()));
+            reachedGoal();
         }
     }
 
@@ -310,31 +314,15 @@ public class MapScreen
         return character;
     }
 
-    /**
-     * Grabbing the key.
-     */
-    public void grabKey()
-    {
-        //if the character cell = key cell
-        if (character.getLocation() == key.getLocation())
-        {
-            hasKey = true;
-            remove(key);
-        }
-    }
 
     /**
      * Reaching the goal.
      */
     public void reachedGoal()
     {
-        if (hasKey != true)
+        if (character.getLocation() == key.getLocation())
         {
-            //nothing happens
-        }
-        else
-        {
-            //Yay you won!
+            remove(key); //You Win
         }
     }
 }
