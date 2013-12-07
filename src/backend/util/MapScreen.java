@@ -1,6 +1,7 @@
 package backend.util;
 
 
+import java.util.HashMap;
 import sofia.graphics.OvalShape;
 //import backend.util.Character.directionOfChar;
 import android.widget.ProgressBar;
@@ -40,6 +41,7 @@ public class MapScreen
     private directionOfChar    status;
     private OvalShape  start;
     private OvalShape  goal;
+    private HashMap<ILocation, Monsters> monsterList;
 
 
     public void initialize()
@@ -79,6 +81,7 @@ public class MapScreen
         fight.setEnabled(false);
         //defend.setEnabled(false);
         //flee.setEnabled(false);
+        monsterList = new HashMap<ILocation, Monsters>();
         addMonsters();
     }
 
@@ -100,7 +103,8 @@ public class MapScreen
      */
     public void fightClicked()
     {
-
+        ILocation loc = new Location
+        character.attack();
     }
 
 
@@ -115,6 +119,7 @@ public class MapScreen
             (loc.x() + 1) * side + 1,
             (loc.y() + 1) * side + 1);
         add(mon);
+        monsterList.put(loc, mon);
     }
 
 
