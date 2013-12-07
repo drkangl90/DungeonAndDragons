@@ -25,7 +25,7 @@ public class Key extends RectangleShape
     public Key(float left, float top, float right, float bottom)
     {
         super(left, top, right, bottom);
-        setFillColor(Color.gold);
+        //setFillColor(Color.gold);
         keyLoc = new Location(7, 0);
     }
 

@@ -180,7 +180,7 @@ public class MapScreen
            y * side + 1,
            (x + 1) * side + 1,
            (y + 1) * side + 1);
-       key.setFillColor(Color.gold);
+       key.setImage("key");
        add(key);
    }
 
