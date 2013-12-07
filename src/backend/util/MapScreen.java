@@ -103,7 +103,25 @@ public class MapScreen
      */
     public void fightClicked()
     {
-        ILocation loc = new Location
+        ILocation loc = new Location(
+            character.getLocation().x(),
+            character.getLocation().y());
+        if (status == directionOfChar.NORTH)
+        {
+            loc = loc.north();
+        }
+        else if (status == directionOfChar.EAST)
+        {
+            loc = loc.east();
+        }
+        else if (status == directionOfChar.SOUTH)
+        {
+            loc = loc.south();
+        }
+        else
+        {
+            loc = loc.west();
+        }
         character.attack();
     }
 
