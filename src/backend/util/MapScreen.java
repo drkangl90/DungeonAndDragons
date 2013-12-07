@@ -196,6 +196,7 @@ public class MapScreen
         if (character.getLocation().y() > 0 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(0, -side);
+            character.setDirection(status);
             character.setLocation(loc);
             reachedGoal();
         }
@@ -212,6 +213,7 @@ public class MapScreen
         if (character.getLocation().y() < size - 1 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(0, side);
+            character.setDirection(status);
             character.setLocation(loc);
             reachedGoal();
         }
@@ -229,6 +231,7 @@ public class MapScreen
         if (character.getLocation().x() < size - 1 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(side, 0);
+            character.setDirection(status);
             character.setLocation(loc);
             reachedGoal();
         }
@@ -246,6 +249,7 @@ public class MapScreen
         if (character.getLocation().x() > 0 && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(-side, 0);
+            character.setDirection(status);
             character.setLocation(loc);
             reachedGoal();
         }

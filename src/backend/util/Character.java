@@ -219,7 +219,7 @@ public class Character
     {
         if (status == directionOfChar.NORTH)
         {
-            setRotation(90);
+            setRotation(270);
         }
         else if (status == directionOfChar.EAST)
         {
@@ -227,11 +227,11 @@ public class Character
         }
         else if (status == directionOfChar.WEST)
         {
-            setRotation(180);
+            setRotation(0);
         }
         else if (status == directionOfChar.SOUTH)
         {
-            setRotation(270);
+            setRotation(90);
         }
     }
 
