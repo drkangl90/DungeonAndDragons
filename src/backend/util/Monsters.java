@@ -41,6 +41,10 @@ public class Monsters
 
     /**
      * Create a new Monster object.
+     * @param left the left position
+     * @param top the top position
+     * @param right the right position
+     * @param bottom the bottom position
      */
     public Monsters(float left, float top, float right, float bottom)
     {
@@ -119,6 +123,10 @@ public class Monsters
         return level;
     }
 
+    /**
+     * Setting the location of the monster.
+     * @param loc the location of the monster
+     */
     public void setLocation(ILocation loc)
     {
         x = loc.x();

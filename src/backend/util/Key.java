@@ -1,5 +1,6 @@
 package backend.util;
 
+import sofia.graphics.Color;
 import sofia.graphics.RectangleShape;
 
 // -------------------------------------------------------------------------
@@ -23,5 +24,6 @@ public class Key extends RectangleShape
     public Key(float left, float top, float right, float bottom)
     {
         super(left, top, right, bottom);
+        setFillColor(Color.gold);
     }
 }
