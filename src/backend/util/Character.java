@@ -20,16 +20,18 @@ public class Character
 {
 
     // full health
-    private int       baseHealth;
-    private int       totalHealth;
+    private int    baseHealth;
+    private int    totalHealth;
     // full capacity of attack
-    private int       baseStrength;
-    private int       totalStrength;
+    private int    baseStrength;
+    private int    totalStrength;
 
-    private int       level;
-    private Random    rand;
-    private int       x;
-    private int       y;
+    private int    level;
+    private Random rand;
+    private int    x;
+    private int    y;
+
+
     // Constructor ----------------------------------------------------------
     /**
      * Create a new Character object.
@@ -53,6 +55,7 @@ public class Character
         setImage("combat103_woodelf");
     }
 
+
     /**
      * Create a new Character object on a cell of the map.
      *
@@ -60,13 +63,22 @@ public class Character
      *            The health of the character
      * @param strength
      *            The strength of the character.
-     * @param left The left position of the Character
-     * @param top The top position of the Character
-     * @param right The right position of the Character
-     * @param bottom The bottom position of the Character
+     * @param left
+     *            The left position of the Character
+     * @param top
+     *            The top position of the Character
+     * @param right
+     *            The right position of the Character
+     * @param bottom
+     *            The bottom position of the Character
      */
-    public Character(int health, int strength,
-        int left, int top, int right, int bottom)
+    public Character(
+        int health,
+        int strength,
+        int left,
+        int top,
+        int right,
+        int bottom)
     {
         super(left, top, right, bottom);
         // creates the random number generator to be used in following methods.
@@ -109,7 +121,9 @@ public class Character
     // ----------------------------------------------------------
     /**
      * Deals damage to the character
-     * @param damage the amount of damage taken
+     *
+     * @param damage
+     *            the amount of damage taken
      */
     public void takeDamage(int damage)
     {
@@ -248,11 +262,11 @@ public class Character
     {
         return new Location(x, y);
     }
-    /**public ILocation getLocation()
-    {
-        return getLocation();
-    }*/
 
+
+    /**
+     * public ILocation getLocation() { return getLocation(); }
+     */
 
     // ----------------------------------------------------------
     /**
@@ -266,23 +280,11 @@ public class Character
         x = loc.x();
         y = loc.y();
     }
-    /**public void setLocation(directionOfChar status)
-    {
-        if (status == directionOfChar.NORTH)
-        {
-            north = direction.east();
-        }
-        else if (status == directionOfChar.EAST)
-        {
-            east = direction.east();
-        }
-        else if (status == directionOfChar.SOUTH)
-        {
-            south = direction.south();
-        }
-        else
-        {
-            west = direction.west();
-        }
-    }*/
+    /**
+     * public void setLocation(directionOfChar status) { if (status ==
+     * directionOfChar.NORTH) { north = direction.east(); } else if (status ==
+     * directionOfChar.EAST) { east = direction.east(); } else if (status ==
+     * directionOfChar.SOUTH) { south = direction.south(); } else { west =
+     * direction.west(); } }
+     */
 }

@@ -1,6 +1,5 @@
 package backend.util;
 
-
 // import backend.util.Character.directionOfChar;
 
 // -------------------------------------------------------------------------
@@ -129,9 +128,9 @@ public class Location
      */
     public boolean equals(Object object)
     {
-        return object instanceof Location && (this.x()
-            == (((Location)object).x()) && this.y()
-            == (((Location)object).y()));
+        return object instanceof Location
+            && (this.x() == (((Location)object).x()) && this.y() == (((Location)object)
+                .y()));
     }
 
 

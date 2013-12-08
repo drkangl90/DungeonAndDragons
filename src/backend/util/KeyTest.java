@@ -4,15 +4,18 @@ import student.TestCase;
 
 // -------------------------------------------------------------------------
 /**
- *  Tests the key class
+ * Tests the key class
  *
- *  @author Alycia Rouffa (arouffa)
- *  @version 12.08.13
+ * @author Alycia Rouffa (arouffa)
+ * @version 12.08.13
  */
-public class KeyTest extends TestCase
+public class KeyTest
+    extends TestCase
 {
-    private Key key;
+    private Key      key;
     private Location location;
+
+
     /**
      * Creates the key object
      */
@@ -21,6 +24,7 @@ public class KeyTest extends TestCase
         key = new Key(0, 0, 0, 0);
         location = new Location(7, 0);
     }
+
 
     /**
      * Tests the getters and setters of the key.

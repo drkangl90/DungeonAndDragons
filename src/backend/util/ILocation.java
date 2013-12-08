@@ -2,12 +2,11 @@ package backend.util;
 
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ * Write a one-sentence summary of your class here. Follow it with additional
+ * details about its purpose, what abstraction it represents, and how to use it.
  *
- *  @author Mary-Wynn Rogers (marywynn)
- *  @version 2013.11.11
+ * @author Mary-Wynn Rogers (marywynn)
+ * @version 2013.11.11
  */
 public interface ILocation
 {
@@ -20,6 +19,7 @@ public interface ILocation
      */
     ILocation east();
 
+
     /**
      * Gets a new location that represents the (x, y) coordinates one cell west
      * of this location.
@@ -27,6 +27,7 @@ public interface ILocation
      * @return returns the location west
      */
     ILocation west();
+
 
     /**
      * Gets a new location that represents the (x, y) coordinates one cell north
@@ -36,6 +37,7 @@ public interface ILocation
      */
     ILocation north();
 
+
     /**
      * Gets a new location that represents the (x, y) coordinates one cell south
      * of this location.
@@ -44,6 +46,7 @@ public interface ILocation
      */
     ILocation south();
 
+
     /**
      * Gets the x-coordinate of the location.
      *
@@ -51,12 +54,14 @@ public interface ILocation
      */
     int x();
 
+
     /**
      * Gets the y-coordinate of the location.
      *
      * @return returns the y location
      */
     int y();
+
 
     /**
      * true if one object equals another, false if they don't

@@ -1,6 +1,5 @@
 package backend.util;
 
-import sofia.graphics.Color;
 import sofia.graphics.RectangleShape;
 import java.util.Random;
 
@@ -150,7 +149,9 @@ public class Monsters
     // ----------------------------------------------------------
     /**
      * Deals damage to the monster
-     * @param damage the amount of damage taken
+     *
+     * @param damage
+     *            the amount of damage taken
      */
     public void takeDamage(int damage)
     {

@@ -1,21 +1,24 @@
 package backend.util;
-import student.TestCase;
 
+import student.TestCase;
 import sofia.util.Random;
 
 // -------------------------------------------------------------------------
 /**
- *  Tests the character class
+ * Tests the character class
  *
- *  @author Alycia Rouffa (arouffa)
- *  @version 11.15.2013
+ * @author Alycia Rouffa (arouffa)
+ * @version 11.15.2013
  */
-public class CharacterTest extends TestCase
+public class CharacterTest
+    extends TestCase
 {
     private Character character;
-    //Character test;
 
-    //private Random rand;
+
+    // Character test;
+
+    // private Random rand;
 
     /**
      * Sets up the information to be tested
@@ -24,6 +27,7 @@ public class CharacterTest extends TestCase
     {
         character = new Character(100, 10);
     }
+
 
     /**
      * Tests the attack() method
@@ -36,6 +40,7 @@ public class CharacterTest extends TestCase
         assertEquals(character.attack(), 10);
     }
 
+
     /**
      * Tests the getHealth and setHealth methods
      */
@@ -45,6 +50,7 @@ public class CharacterTest extends TestCase
         assertEquals(120, character.getHealth());
     }
 
+
     /**
      * Tests the getStrength and setStrength methods
      */
@@ -53,6 +59,7 @@ public class CharacterTest extends TestCase
         character.setBaseStrength(20);
         assertEquals(20, character.getStrength());
     }
+
 
     /**
      * Tests how leveling up affects health.
@@ -64,6 +71,7 @@ public class CharacterTest extends TestCase
         assertEquals(55, character.getHealth());
     }
 
+
     /**
      * Tests how leveling up affects strength.
      */
@@ -74,6 +82,7 @@ public class CharacterTest extends TestCase
         assertEquals(12, character.getStrength());
     }
 
+
     /**
      * Tests the takeDamage() method
      */
@@ -82,6 +91,7 @@ public class CharacterTest extends TestCase
         character.takeDamage(20);
         assertEquals(character.getHealth(), 80);
     }
+
 
     /**
      * Testing the direction of the character

@@ -4,21 +4,22 @@ import backend.util.Map.MapCell;
 
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ * Write a one-sentence summary of your class here. Follow it with additional
+ * details about its purpose, what abstraction it represents, and how to use it.
  *
- *  @author Mary-Wynn Rogers (marywynn)
- *  @version 2013.11.15
+ * @author Mary-Wynn Rogers (marywynn)
+ * @version 2013.11.15
  */
-public class MapTest extends student.TestCase
+public class MapTest
+    extends student.TestCase
 {
- // ~ Fields ................................................................
-    private int size = 10;
-    private Map map;
+    // ~ Fields ................................................................
+    private int      size = 10;
+    private Map      map;
     private Location locat;
 
- // ~ Constructor ...........................................................
+
+    // ~ Constructor ...........................................................
 
     /**
      * Creates a new MapTest object.
@@ -38,8 +39,10 @@ public class MapTest extends student.TestCase
      */
     public void setUp()
     {
-       map = new Map(size);        locat = new Location(2, 2);
+        map = new Map(size);
+        locat = new Location(2, 2);
     }
+
 
     // ----------------------------------------------------------
     /**
@@ -47,10 +50,11 @@ public class MapTest extends student.TestCase
      */
     public void testGetCell()
     {
-        map.setCell(locat,  MapCell.CURRENT_PATH);
+        map.setCell(locat, MapCell.CURRENT_PATH);
         System.out.println(map.getCell(locat));
         assertEquals(MapCell.CURRENT_PATH, map.getCell(locat));
     }
+
 
     // ----------------------------------------------------------
     /**
@@ -64,6 +68,7 @@ public class MapTest extends student.TestCase
         assertTrue(MapCell.UNEXPLORED.equals(map.getCell(locat)));
     }
 
+
     /**
      * Tests the get cell method by setting the cell
      */
@@ -72,9 +77,9 @@ public class MapTest extends student.TestCase
         map.setCell(new Location(2, 2), MapCell.WALL);
         assertTrue(MapCell.WALL.equals(map.getCell(new Location(2, 2))));
         map.setGoalLocation(new Location(2, 2));
-        assertTrue(MapCell.UNEXPLORED.equals(map.getCell(
-            new Location(2, 2))));
+        assertTrue(MapCell.UNEXPLORED.equals(map.getCell(new Location(2, 2))));
     }
+
 
     /**
      * Tests the get cell method by setting the cell
@@ -90,28 +95,24 @@ public class MapTest extends student.TestCase
             map.getCell(new Location(0, -2))));
     }
 
+
     /**
      * tests the getcell and setcell method
      */
     public void testgetCell4()
     {
         map.setCell(map.getStartLocation(), MapCell.WALL);
-        assertTrue(map.getCell(map.getStartLocation()).equals(
-            MapCell.WALL));
+        assertTrue(map.getCell(map.getStartLocation()).equals(MapCell.WALL));
         map.setStartLocation(new Location(0, 0));
-        assertFalse(map.getCell(map.getStartLocation()).equals(
-            MapCell.WALL));
+        assertFalse(map.getCell(map.getStartLocation()).equals(MapCell.WALL));
         map.setCell(map.getGoalLocation(), MapCell.WALL);
-        assertTrue(map.getCell(map.getGoalLocation()).equals(
-            MapCell.WALL));
+        assertTrue(map.getCell(map.getGoalLocation()).equals(MapCell.WALL));
         map.setGoalLocation(new Location(size - 1, size - 1));
-        assertFalse(map.getCell(map.getGoalLocation()).equals(
-            MapCell.WALL));
+        assertFalse(map.getCell(map.getGoalLocation()).equals(MapCell.WALL));
         map.setCell(locat, MapCell.WALL);
         assertTrue(map.getCell(locat).equals(MapCell.WALL));
         map.setCell(locat, MapCell.CURRENT_PATH);
         assertFalse(map.getCell(locat).equals(MapCell.WALL));
-
 
     }
 

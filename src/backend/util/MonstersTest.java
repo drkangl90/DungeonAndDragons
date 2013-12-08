@@ -1,21 +1,24 @@
 package backend.util;
-import student.TestCase;
 
+import student.TestCase;
 import sofia.util.Random;
 
 // -------------------------------------------------------------------------
 /**
- *  Tests the character class
+ * Tests the character class
  *
- *  @author Alycia Rouffa (arouffa)
- *  @version 11.15.2013
+ * @author Alycia Rouffa (arouffa)
+ * @version 11.15.2013
  */
-public class MonstersTest extends TestCase
+public class MonstersTest
+    extends TestCase
 {
     private Monsters monster;
-    //Character test;
 
-    //private Random rand;
+
+    // Character test;
+
+    // private Random rand;
 
     /**
      * Sets up the information to be tested
@@ -24,6 +27,7 @@ public class MonstersTest extends TestCase
     {
         monster = new Monsters();
     }
+
 
     /**
      * Tests the attack() method
@@ -34,6 +38,7 @@ public class MonstersTest extends TestCase
         assertEquals(monster.attack(), 5);
         assertEquals(monster.attack(), 0);
     }
+
 
     /**
      * Tests the levelUp() method.
@@ -46,6 +51,7 @@ public class MonstersTest extends TestCase
         assertEquals(6, monster.getStrength());
     }
 
+
     /**
      * Tests the levelUp() method on the health.
      */
@@ -55,6 +61,7 @@ public class MonstersTest extends TestCase
         monster.levelUp();
         assertEquals(43, monster.getHealth());
     }
+
 
     /**
      * Tests the levelUp() method on the strength.
