@@ -1,6 +1,5 @@
 package backend.util;
 
-import sofia.graphics.ShapeView;
 import sofia.util.Random;
 import sofia.graphics.RectangleShape;
 
@@ -29,14 +28,8 @@ public class Character
 
     private int       level;
     private Random    rand;
-    private Location  direction;
     private int       x;
     private int       y;
-    private ILocation north;
-    private ILocation east;
-    private ILocation south;
-    private ILocation west;
-
     // Constructor ----------------------------------------------------------
     /**
      * Create a new Character object.

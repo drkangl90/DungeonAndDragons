@@ -55,7 +55,7 @@ public class CharacterTest extends TestCase
     }
 
     /**
-     * comment.
+     * Tests how leveling up affects health.
      */
     public void testLevelSetHealth()
     {
@@ -65,12 +65,29 @@ public class CharacterTest extends TestCase
     }
 
     /**
-     * comment.
+     * Tests how leveling up affects strength.
      */
     public void testLevelSetStrength()
     {
         character.levelUp();
         character.setBaseStrength(11);
         assertEquals(12, character.getStrength());
+    }
+
+    /**
+     * Tests the takeDamage() method
+     */
+    public void testTakeDamage()
+    {
+        character.takeDamage(20);
+        assertEquals(character.getHealth(), 80);
+    }
+
+    /**
+     * Testing the direction of the character
+     */
+    public void testDirection()
+    {
+        //
     }
 }
