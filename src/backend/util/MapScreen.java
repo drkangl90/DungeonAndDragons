@@ -1,25 +1,22 @@
 package backend.util;
 
-
 import sofia.graphics.Anchor;
 import sofia.graphics.TextShape;
 import backend.util.Map.MapCell;
 import java.util.HashMap;
 import sofia.graphics.OvalShape;
-//import backend.util.Character.directionOfChar;
+// import backend.util.Character.directionOfChar;
 import android.widget.ProgressBar;
 import android.widget.Button;
 import sofia.graphics.RectangleShape;
 import sofia.app.ShapeScreen;
 import sofia.graphics.Color;
 
-
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * Screen displayed for the game.
  *
- * @author Ben
+ * @author Benjamin Robohn (brobohn)
  * @author Alycia Rouffa (arouffa)
  * @author Mary-Wynn Rogers (marywynn)
  * @version Nov 15, 2013
@@ -38,16 +35,20 @@ public class MapScreen
     private Button             east;
     private Button             west;
     private Button             fight;
-    //private Button             defend;
-    //private Button             flee;
+    // private Button defend;
+    // private Button flee;
     private ProgressBar        health;
     private directionOfChar    status;
-    private OvalShape  start;
-    private OvalShape  goal;
+    private OvalShape          start;
+    private OvalShape          goal;
     private Monsters[][]       monsterMap;
-    private Key key;
-    private TextShape text;
+    private Key                key;
+    private TextShape          text;
 
+
+    /**
+     * Called when the screen is opened.
+     */
     public void initialize()
     {
         size = 8;
@@ -68,14 +69,14 @@ public class MapScreen
                         (j + 1) * side);
                 tile.setColor(Color.white);
                 tile.setImage("grass");
-                //tile.setFillColor(Color.black);
+                // tile.setFillColor(Color.black);
                 add(tile);
                 mapArray[i][j] = tile;
             }
         }
 
         character = new Character(30, 20, 1, 1, (int)side, (int)side);
-        //character.setFillColor(Color.green);
+        // character.setFillColor(Color.green);
         character.setLocation(new Location(0, 0));
         add(character);
         status = directionOfChar.EAST;
@@ -84,8 +85,8 @@ public class MapScreen
         east.setEnabled(true);
         west.setEnabled(true);
         fight.setEnabled(true);
-        //defend.setEnabled(false);
-        //flee.setEnabled(false);
+        // defend.setEnabled(false);
+        // flee.setEnabled(false);
         monsterMap = new Monsters[size][size];
         for (Monsters[] row : monsterMap)
         {
@@ -99,26 +100,14 @@ public class MapScreen
     }
 
 
-    // ----------------------------------------------------------
-    /**
-     * Place a description of your method here.
-     *
-     * @param x
-     * @param y
-     */
-    public void onTouchDown(float x, float y)
-    {
-
-    }
-
     /**
      * Causes a character to attack a monster, if present.
      */
     public void fightClicked()
     {
-        ILocation loc = new Location(
-            character.getLocation().x(),
-            character.getLocation().y());
+        ILocation loc =
+            new Location(character.getLocation().x(), character.getLocation()
+                .y());
         if (status == directionOfChar.NORTH)
         {
             loc = loc.north();
@@ -140,16 +129,16 @@ public class MapScreen
         {
             Monsters mon = monsterMap[loc.x()][loc.y()];
             mon.takeDamage(character.attack());
-            //text.setText("Attacking");
+            // text.setText("Attacking");
 
             character.takeDamage(mon.attack());
 
             if (character.getHealth() <= 0)
             {
                 character.remove();
-                //text.setText("you die");
+                // text.setText("you die");
 
-                //you lose
+                // you lose
             }
 
             if (mon.getHealth() <= 0)
@@ -163,15 +152,16 @@ public class MapScreen
 
 
     /**
+     * Adds a Monster to the map.
+     *
      * @param loc
+     *            the location at which to add the monster
      */
     public void addMonster(ILocation loc)
     {
-        Monsters mon = new Monsters(
-            loc.x() * side + 1,
-            loc.y() * side + 1,
-            (loc.x() + 1) * side + 1,
-            (loc.y() + 1) * side + 1);
+        Monsters mon =
+            new Monsters(loc.x() * side + 1, loc.y() * side + 1, (loc.x() + 1)
+                * side + 1, (loc.y() + 1) * side + 1);
         map.setCell(loc, MapCell.MONSTER);
         add(mon);
         monsterMap[loc.x()][loc.y()] = mon;
@@ -179,29 +169,32 @@ public class MapScreen
 
 
     /**
-     *
+     * Adds the Monsters preset for level one.
      */
-    public void addMonsters()
+    public void addMonstersLevel1()
     {
         addMonster(new Location(3, 3));
         addMonster(new Location(2, 6));
         addMonster(new Location(7, 7));
     }
 
+
+
+
     /**
-    * Sets the location and adds to the screen
-    * @param location The location of the tile of the key.
-    */
-   public void addKey(int x, int y)
-   {
-       key = new Key(
-           x * side + 1,
-           y * side + 1,
-           (x + 1) * side + 1,
-           (y + 1) * side + 1);
-       key.setImage("key");
-       add(key);
-   }
+     * Sets the location and adds to the screen
+     *
+     * @param location
+     *            The location of the tile of the key.
+     */
+    public void addKey(int x, int y)
+    {
+        key =
+            new Key(x * side + 1, y * side + 1, (x + 1) * side + 1, (y + 1)
+                * side + 1);
+        key.setImage("key");
+        add(key);
+    }
 
 
     /**
@@ -212,7 +205,8 @@ public class MapScreen
         // character moves north
         status = directionOfChar.NORTH;
         ILocation loc = character.getLocation().north();
-        if (character.getLocation().y() > 0 && map.getCell(loc) != MapCell.MONSTER)
+        if (character.getLocation().y() > 0
+            && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(0, -side);
             character.setDirection(status);
@@ -220,6 +214,7 @@ public class MapScreen
             reachedGoal();
         }
     }
+
 
     /**
      * moves the character south
@@ -229,7 +224,8 @@ public class MapScreen
         // character moves south
         status = directionOfChar.SOUTH;
         ILocation loc = character.getLocation().south();
-        if (character.getLocation().y() < size - 1 && map.getCell(loc) != MapCell.MONSTER)
+        if (character.getLocation().y() < size - 1
+            && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(0, side);
             character.setDirection(status);
@@ -247,7 +243,8 @@ public class MapScreen
         // character moves east
         status = directionOfChar.EAST;
         ILocation loc = character.getLocation().east();
-        if (character.getLocation().x() < size - 1 && map.getCell(loc) != MapCell.MONSTER)
+        if (character.getLocation().x() < size - 1
+            && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(side, 0);
             character.setDirection(status);
@@ -265,7 +262,8 @@ public class MapScreen
         // character moves west
         status = directionOfChar.WEST;
         ILocation loc = character.getLocation().west();
-        if (character.getLocation().x() > 0 && map.getCell(loc) != MapCell.MONSTER)
+        if (character.getLocation().x() > 0
+            && map.getCell(loc) != MapCell.MONSTER)
         {
             character.moveBy(-side, 0);
             character.setDirection(status);
@@ -275,58 +273,35 @@ public class MapScreen
     }
 
 
-//    /**
-//     * handles the touch events for the maze solver
-//     *
-//     * @param x
-//     *            the x coordinate
-//     * @param y
-//     *            the y coordinate
-//     */
-    /*public void processTouch(float x, float y)
-    {
-        float cellSize = Math.min(getWidth(), getHeight()) / 8;
-        int i = (int)(x / cellSize);
-        int j = (int)(y / cellSize);
-        Location locat = new Location(i, j);
-
-        if (status == directionOfChar.NORTH)
-        {
-            character.setDirection(directionOfChar.NORTH);
-            //character.setLocation(directionOfChar.NORTH);
-        }
-        else if (status == directionOfChar.EAST)
-        {
-            character.setDirection(directionOfChar.EAST);
-            //character.setLocation(directionOfChar.EAST);
-        }
-        else if (status == directionOfChar.SOUTH)
-        {
-            character.setDirection(directionOfChar.SOUTH);
-            //character.setLocation(directionOfChar.SOUTH);
-        }
-        else if (status == directionOfChar.WEST)
-        {
-            character.setDirection(directionOfChar.WEST);
-            //character.setLocation(directionOfChar.WEST);
-        }
-        else
-        {
-            map.setGoalLocation(locat);
-            goal.setPosition(
-                ((i + cellSize) + (cellSize / 2)),
-                ((j * cellSize) + (cellSize / 2)));
-            add(goal);
-            map.setStartLocation(locat);
-            start.setPosition(
-                ((i + cellSize) + (cellSize / 2)),
-                ((j * cellSize) + (cellSize / 2)));
-            add(start);
-        }
-    }*/
+// /**
+// * handles the touch events for the maze solver
+// *
+// * @param x
+// * the x coordinate
+// * @param y
+// * the y coordinate
+// */
+    /*
+     * public void processTouch(float x, float y) { float cellSize =
+     * Math.min(getWidth(), getHeight()) / 8; int i = (int)(x / cellSize); int j
+     * = (int)(y / cellSize); Location locat = new Location(i, j); if (status ==
+     * directionOfChar.NORTH) { character.setDirection(directionOfChar.NORTH);
+     * //character.setLocation(directionOfChar.NORTH); } else if (status ==
+     * directionOfChar.EAST) { character.setDirection(directionOfChar.EAST);
+     * //character.setLocation(directionOfChar.EAST); } else if (status ==
+     * directionOfChar.SOUTH) { character.setDirection(directionOfChar.SOUTH);
+     * //character.setLocation(directionOfChar.SOUTH); } else if (status ==
+     * directionOfChar.WEST) { character.setDirection(directionOfChar.WEST);
+     * //character.setLocation(directionOfChar.WEST); } else {
+     * map.setGoalLocation(locat); goal.setPosition( ((i + cellSize) + (cellSize
+     * / 2)), ((j * cellSize) + (cellSize / 2))); add(goal);
+     * map.setStartLocation(locat); start.setPosition( ((i + cellSize) +
+     * (cellSize / 2)), ((j * cellSize) + (cellSize / 2))); add(start); } }
+     */
 
     /**
      * Accessor method for the character on screen.
+     *
      * @return returns the character being called.
      */
     public Character getCharacter()
@@ -355,7 +330,7 @@ public class MapScreen
 
         if (character.getLocation().equals(key.getLocation()) && allDead)
         {
-            key.remove(); //You Win
+            key.remove(); // You Win
         }
     }
 }
