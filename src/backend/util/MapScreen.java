@@ -1,6 +1,5 @@
 package backend.util;
 
-import android.R;
 import android.widget.ProgressBar;
 import backend.util.Map.MapCell;
 import android.widget.Button;
@@ -35,11 +34,8 @@ public class MapScreen
     private directionOfChar    status;
     private ProgressBar        health;
     private ProgressBar        monHealth;
-    // private OvalShape start;
-    // private OvalShape goal;
     private Monsters[][]       monsterMap;
     private Key                key;
-    // private TextShape text;
     private int                level = 1;
 
 
@@ -78,9 +74,9 @@ public class MapScreen
         monsterMap = new Monsters[size][size];
         for (Monsters[] row : monsterMap)
         {
-            for (Monsters mon : row)
+            for (int i = 0; i < row.length; i++)
             {
-                mon = null;
+                row[i] = null;
             }
         }
         addMonstersLevel1();
@@ -138,9 +134,6 @@ public class MapScreen
                 south.setEnabled(false);
                 east.setEnabled(false);
                 west.setEnabled(false);
-                // text.setText("you die");
-
-                // you lose
             }
 
             if (mon.getHealth() <= 0)
@@ -166,6 +159,7 @@ public class MapScreen
         }
         health.setProgress(currentPosition);
     }
+
 
     /**
      * the health bar for the last monster that was attacked
@@ -231,8 +225,10 @@ public class MapScreen
         addMonster(new Location(2, 5));
         addMonster(new Location(5, 2));
         addMonster(new Location(6, 7));
-        addMonster(new Location(9, 3));
-        addMonster(new Location(6, 9));
+        addMonster(new Location(8, 3));
+        addMonster(new Location(6, 8));
+        addMonster(new Location(1, 3));
+        addMonster(new Location(7, 3));
     }
 
 
@@ -376,6 +372,10 @@ public class MapScreen
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Initiates Level 2
+     */
     public void level2()
     {
         character.remove();
@@ -409,9 +409,9 @@ public class MapScreen
         monsterMap = new Monsters[size][size];
         for (Monsters[] row : monsterMap)
         {
-            for (Monsters monster : row)
+            for (int i = 0; i < row.length; i++)
             {
-                monster = null;
+                row[i] = null;
             }
         }
         addMonstersLevel2();
@@ -420,6 +420,10 @@ public class MapScreen
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Initiates Level 3
+     */
     public void level3()
     {
         character.remove();
@@ -453,13 +457,24 @@ public class MapScreen
         monsterMap = new Monsters[size][size];
         for (Monsters[] row : monsterMap)
         {
-            for (Monsters monster : row)
+            for (int i = 0; i < row.length; i++)
             {
-                monster = null;
+                row[i] = null;
             }
         }
         addMonstersLevel3();
         addKey(7, 9);
         healthBar();
+    }
+
+
+    /**
+     * Returns the map
+     *
+     * @return the map
+     */
+    public Map getMap()
+    {
+        return map;
     }
 }
