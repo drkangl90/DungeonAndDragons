@@ -77,11 +77,6 @@ public class MapScreen
         character.setLocation(new Location(0, 0));
         add(character);
         status = directionOfChar.EAST;
-        /*north.setEnabled(true);
-        south.setEnabled(true);
-        east.setEnabled(true);
-        west.setEnabled(true);
-        fight.setEnabled(true);*/
         monsterMap = new Monsters[size][size];
         for (Monsters[] row : monsterMap)
         {
@@ -326,11 +321,12 @@ public class MapScreen
         if (character.getLocation().equals(key.getLocation()) && allDead)
         {
             key.remove(); // You Win
-            if (level == 1)
+            level++;
+            if (level == 2)
             {
                 level2();
             }
-            if (level == 2)
+            if (level == 3)
             {
                 level3();
             }
