@@ -93,6 +93,31 @@ public class MapScreenTest
         getScreen().westClicked();
         assertEquals(new Location(6, 6), getScreen().getCharacter()
             .getLocation());
+    }
 
+    /**
+     * Test movement around a monster
+     */
+    public void testMovementAroundMonster()
+    {
+        getScreen().getCharacter().setLocation(new Location(2, 3));
+        getScreen().eastClicked();
+        assertEquals(new Location(2, 3), getScreen().getCharacter()
+            .getLocation());
+
+        getScreen().getCharacter().setLocation(new Location(4, 3));
+        getScreen().westClicked();
+        assertEquals(new Location(4, 3), getScreen().getCharacter()
+            .getLocation());
+
+        getScreen().getCharacter().setLocation(new Location(3, 2));
+        getScreen().southClicked();
+        assertEquals(new Location(3, 2), getScreen().getCharacter()
+            .getLocation());
+
+        getScreen().getCharacter().setLocation(new Location(3, 4));
+        getScreen().northClicked();
+        assertEquals(new Location(3, 4), getScreen().getCharacter()
+            .getLocation());
     }
 }
