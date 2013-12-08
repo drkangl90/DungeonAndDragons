@@ -172,7 +172,7 @@ public class Character
     public void levelUp()
     {
         level++;
-        totalHealth += totalHealth * .1;
+        totalHealth += baseHealth * (.1 * level);
         totalStrength += totalStrength * .1;
     }
 
@@ -210,8 +210,6 @@ public class Character
     /**
      * gets the direction of the character in the map
      *
-     * @param status
-     *            the status of the cell
      * @return returns the location of the character
      */
     public Location getDirection()
