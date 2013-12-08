@@ -1,70 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    
+    android:layout_height="match_parent"
+    android:background="@color/black_overlay" >
+
     <sofia.graphics.ShapeView
         android:id="@+id/shapeView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/health"
-        android:layout_alignParentRight="true" />
-
-    <Button
-        android:id="@+id/fight"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/fight" />
-
+        android:layout_alignParentTop="true" 
+        android:layout_above="@+id/north"/>
+    
     <Button
         android:id="@+id/north"
-        style="@style/ButtonBarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/fight"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
         android:text="@string/north" />
-
+    
     <Button
-        android:id="@+id/west"
-        style="@style/ButtonBarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/fight"
-        android:layout_toRightOf="@+id/north"
-        android:text="@string/west" />
-
-    <ProgressBar
-        android:id="@+id/health"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/west"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="16dp"
-        android:visibility="visible" />
-
+        android:id="@+id/fight"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/south"
+        android:layout_centerHorizontal="true"
+        android:text="@string/fight" />
+    
     <Button
         android:id="@+id/east"
-        style="@style/ButtonBarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/fight"
-        android:layout_alignParentRight="true"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/south"
+        android:layout_toRightOf="@+id/fight"
         android:text="@string/east" />
-
+    
+    <Button
+        android:id="@+id/west"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/south"
+        android:layout_toLeftOf="@+id/fight"
+        android:text="@string/west" />
+    
     <Button
         android:id="@+id/south"
-        style="@style/ButtonBarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/fight"
-        android:layout_toLeftOf="@+id/east"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:text="@string/south" />
 
 </RelativeLayout>

@@ -4,9 +4,6 @@ import sofia.graphics.Anchor;
 import sofia.graphics.TextShape;
 import backend.util.Map.MapCell;
 import java.util.HashMap;
-import sofia.graphics.OvalShape;
-// import backend.util.Character.directionOfChar;
-import android.widget.ProgressBar;
 import android.widget.Button;
 import sofia.graphics.RectangleShape;
 import sofia.app.ShapeScreen;
@@ -35,10 +32,9 @@ public class MapScreen
     private Button             east;
     private Button             west;
     private Button             fight;
-    private ProgressBar        health;
     private directionOfChar    status;
-    private OvalShape          start;
-    private OvalShape          goal;
+    //private OvalShape          start;
+    //private OvalShape          goal;
     private Monsters[][]       monsterMap;
     private Key                key;
     private TextShape          text;
@@ -119,7 +115,9 @@ public class MapScreen
         {
             Monsters mon = monsterMap[loc.x()][loc.y()];
             mon.takeDamage(character.attack());
-            // text.setText("Attacking");
+
+            // setting of text for attacking monster
+
 
             character.takeDamage(mon.attack());
 
