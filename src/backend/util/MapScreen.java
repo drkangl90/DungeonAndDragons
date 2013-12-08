@@ -24,6 +24,7 @@ public class MapScreen
     private Map                map;
     private int                size;
     private Character          character;
+    private Monsters           mon;
     private RectangleShape[][] mapArray;
     private float              side;
     private Button             north;
@@ -33,6 +34,7 @@ public class MapScreen
     private Button             fight;
     private directionOfChar    status;
     private ProgressBar        health;
+    private ProgressBar        monHealth;
     // private OvalShape start;
     // private OvalShape goal;
     private Monsters[][]       monsterMap;
@@ -86,6 +88,9 @@ public class MapScreen
         health.setVisibility(ProgressBar.VISIBLE);
         health.setProgress(100);
         health.setMax(character.getHealth());
+        monHealth.setVisibility(ProgressBar.VISIBLE);
+        monHealth.setProgress(30);
+        monHealth.setMax(30);
     }
 
 
@@ -116,8 +121,9 @@ public class MapScreen
 
         if (map.getCell(loc) == MapCell.MONSTER)
         {
-            Monsters mon = monsterMap[loc.x()][loc.y()];
+            mon = monsterMap[loc.x()][loc.y()];
             mon.takeDamage(character.attack());
+            monHealthBar();
 
             character.takeDamage(mon.attack());
             this.healthBar();
@@ -125,6 +131,13 @@ public class MapScreen
             if (character.getHealth() <= 0)
             {
                 character.remove();
+                character = null;
+
+                fight.setEnabled(false);
+                north.setEnabled(false);
+                south.setEnabled(false);
+                east.setEnabled(false);
+                west.setEnabled(false);
                 // text.setText("you die");
 
                 // you lose
@@ -135,6 +148,7 @@ public class MapScreen
                 mon.remove();
                 map.setCell(loc, MapCell.UNEXPLORED);
                 monsterMap[loc.x()][loc.y()] = null;
+                mon = null;
             }
         }
     }
@@ -153,6 +167,20 @@ public class MapScreen
         health.setProgress(currentPosition);
     }
 
+    /**
+     * the health bar for the last monster that was attacked
+     */
+    public void monHealthBar()
+    {
+        int currentPosition = mon.getHealth();
+        monHealth.setProgress(currentPosition);
+        if (mon != null)
+        {
+            currentPosition = mon.getHealth();
+        }
+        monHealth.setProgress(currentPosition);
+    }
+
 
     /**
      * Adds a Monster to the map.
@@ -162,12 +190,12 @@ public class MapScreen
      */
     public void addMonster(ILocation loc)
     {
-        Monsters mon =
+        Monsters monster =
             new Monsters(loc.x() * side + 1, loc.y() * side + 1, (loc.x() + 1)
                 * side + 1, (loc.y() + 1) * side + 1);
         map.setCell(loc, MapCell.MONSTER);
-        add(mon);
-        monsterMap[loc.x()][loc.y()] = mon;
+        add(monster);
+        monsterMap[loc.x()][loc.y()] = monster;
     }
 
 
@@ -323,9 +351,9 @@ public class MapScreen
 
         for (Monsters[] row : monsterMap)
         {
-            for (Monsters mon : row)
+            for (Monsters monster : row)
             {
-                if (mon != null)
+                if (monster != null)
                 {
                     allDead = false;
                 }
@@ -381,13 +409,14 @@ public class MapScreen
         monsterMap = new Monsters[size][size];
         for (Monsters[] row : monsterMap)
         {
-            for (Monsters mon : row)
+            for (Monsters monster : row)
             {
-                mon = null;
+                monster = null;
             }
         }
         addMonstersLevel2();
         addKey(8, 3);
+        healthBar();
     }
 
 
@@ -424,12 +453,13 @@ public class MapScreen
         monsterMap = new Monsters[size][size];
         for (Monsters[] row : monsterMap)
         {
-            for (Monsters mon : row)
+            for (Monsters monster : row)
             {
-                mon = null;
+                monster = null;
             }
         }
         addMonstersLevel3();
         addKey(7, 9);
+        healthBar();
     }
 }
