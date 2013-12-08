@@ -1,6 +1,5 @@
 package backend.util;
 
-import sofia.graphics.Color;
 import sofia.graphics.RectangleShape;
 
 // -------------------------------------------------------------------------
@@ -41,6 +40,8 @@ public class Key extends RectangleShape
 
     /**
      * sets the location of the key
+     * @param x the x coordinate
+     * @param y the y coordinate
      */
     public void setLocation(int x, int y)
     {

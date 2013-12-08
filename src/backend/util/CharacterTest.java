@@ -15,7 +15,7 @@ public class CharacterTest extends TestCase
     private Character character;
     //Character test;
 
-    private Random rand;
+    //private Random rand;
 
     /**
      * Sets up the information to be tested
@@ -52,17 +52,6 @@ public class CharacterTest extends TestCase
     {
         character.setBaseStrength(20);
         assertEquals(20, character.getStrength());
-    }
-
-    /**
-     * Tests the levelUp() method.
-     */
-    public void testLevelUp()
-    {
-        character.levelUp();
-        assertEquals(2, character.getLevel());
-        assertEquals(110, character.getHealth());
-        assertEquals(11, character.getStrength());
     }
 
     /**
