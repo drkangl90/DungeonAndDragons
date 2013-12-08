@@ -1,9 +1,8 @@
 package backend.util;
 
-import sofia.graphics.Anchor;
-import sofia.graphics.TextShape;
+import android.R;
+import android.widget.ProgressBar;
 import backend.util.Map.MapCell;
-import java.util.HashMap;
 import android.widget.Button;
 import sofia.graphics.RectangleShape;
 import sofia.app.ShapeScreen;
@@ -33,11 +32,12 @@ public class MapScreen
     private Button             west;
     private Button             fight;
     private directionOfChar    status;
-    //private OvalShape          start;
-    //private OvalShape          goal;
+    private ProgressBar        health;
+    // private OvalShape start;
+    // private OvalShape goal;
     private Monsters[][]       monsterMap;
     private Key                key;
-    private TextShape          text;
+    // private TextShape text;
     private int                level = 1;
 
 
@@ -83,6 +83,9 @@ public class MapScreen
         }
         addMonstersLevel1();
         addKey(7, 0);
+        health.setVisibility(ProgressBar.VISIBLE);
+        health.setProgress(100);
+        health.setMax(character.getHealth());
     }
 
 
@@ -116,10 +119,8 @@ public class MapScreen
             Monsters mon = monsterMap[loc.x()][loc.y()];
             mon.takeDamage(character.attack());
 
-            // setting of text for attacking monster
-
-
             character.takeDamage(mon.attack());
+            this.healthBar();
 
             if (character.getHealth() <= 0)
             {
@@ -136,6 +137,20 @@ public class MapScreen
                 monsterMap[loc.x()][loc.y()] = null;
             }
         }
+    }
+
+
+    /**
+     * the health bar for the character
+     */
+    public void healthBar()
+    {
+        int currentPosition = character.getHealth();
+        if (character != null)
+        {
+            currentPosition = character.getHealth();
+        }
+        health.setProgress(currentPosition);
     }
 
 
@@ -178,6 +193,7 @@ public class MapScreen
         addMonster(new Location(8, 5));
         addMonster(new Location(7, 8));
     }
+
 
     /**
      * Adds the Monsters preset for level three.
