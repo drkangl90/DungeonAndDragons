@@ -20,9 +20,9 @@ public class Monsters
     // full capacity of attack
     private int    strengthField;
     private Random rand;
-    private int level;
-    private int       x;
-    private int       y;
+    private int    level;
+    private int    x;
+    private int    y;
 
 
     // Constructor ----------------------------------------------------------
@@ -39,12 +39,18 @@ public class Monsters
         strengthField = 5;
     }
 
+
     /**
      * Create a new Monster object.
-     * @param left the left position
-     * @param top the top position
-     * @param right the right position
-     * @param bottom the bottom position
+     *
+     * @param left
+     *            the left position
+     * @param top
+     *            the top position
+     * @param right
+     *            the right position
+     * @param bottom
+     *            the bottom position
      */
     public Monsters(float left, float top, float right, float bottom)
     {
@@ -91,6 +97,7 @@ public class Monsters
         return healthField;
     }
 
+
     /**
      * This is the getStrength() method, which gets the strength based on the
      * monster generated.
@@ -103,6 +110,7 @@ public class Monsters
         return strengthField;
     }
 
+
     /**
      * Changes what level the character is at, and increments the health and
      * strength in relation.
@@ -114,8 +122,10 @@ public class Monsters
         strengthField += strengthField * .2;
     }
 
+
     /**
      * This gets the level of the character.
+     *
      * @return the current level of the character
      */
     public int getLevel()
@@ -123,9 +133,12 @@ public class Monsters
         return level;
     }
 
+
     /**
      * Setting the location of the monster.
-     * @param loc the location of the monster
+     *
+     * @param loc
+     *            the location of the monster
      */
     public void setLocation(ILocation loc)
     {
@@ -133,9 +146,14 @@ public class Monsters
         y = loc.y();
     }
 
+
+    // ----------------------------------------------------------
+    /**
+     * Deals damage to the monster
+     * @param damage the amount of damage taken
+     */
     public void takeDamage(int damage)
     {
         healthField -= damage;
     }
 }
-

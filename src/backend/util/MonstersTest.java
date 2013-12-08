@@ -15,7 +15,7 @@ public class MonstersTest extends TestCase
     private Monsters monster;
     //Character test;
 
-    private Random rand;
+    //private Random rand;
 
     /**
      * Sets up the information to be tested
@@ -64,5 +64,15 @@ public class MonstersTest extends TestCase
         monster.levelUp();
         monster.levelUp();
         assertEquals(7, monster.getStrength());
+    }
+
+
+    /**
+     * Tests the takeDamage() method
+     */
+    public void testTakeDamage()
+    {
+        monster.takeDamage(20);
+        assertEquals(monster.getHealth(), 10);
     }
 }
