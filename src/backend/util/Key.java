@@ -41,8 +41,6 @@ public class Key extends RectangleShape
 
     /**
      * sets the location of the key
-     *
-     * @return returns the location that the key is
      */
     public void setLocation(int x, int y)
     {

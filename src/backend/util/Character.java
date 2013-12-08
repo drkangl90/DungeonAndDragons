@@ -113,6 +113,11 @@ public class Character
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Deals damage to the character
+     * @param damage the amount of damage taken
+     */
     public void takeDamage(int damage)
     {
         totalHealth -= damage;
