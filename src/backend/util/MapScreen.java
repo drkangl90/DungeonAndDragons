@@ -26,11 +26,11 @@ public class MapScreen
     private Monsters           mon;
     private RectangleShape[][] mapArray;
     private float              side;
-    private Button             north;
-    private Button             south;
-    private Button             east;
-    private Button             west;
-    private Button             fight;
+    public Button              north;
+    public Button              south;
+    public Button              east;
+    public Button              west;
+    public Button              fight;
     private directionOfChar    status;
     private ProgressBar        health;
     private ProgressBar        monHealth;
@@ -95,53 +95,50 @@ public class MapScreen
      */
     public void fightClicked()
     {
-        ILocation loc =
-            new Location(character.getLocation().x(), character.getLocation()
-                .y());
-        if (status == directionOfChar.NORTH)
+        if (character != null)
         {
-            loc = loc.north();
-        }
-        else if (status == directionOfChar.EAST)
-        {
-            loc = loc.east();
-        }
-        else if (status == directionOfChar.SOUTH)
-        {
-            loc = loc.south();
-        }
-        else
-        {
-            loc = loc.west();
-        }
-
-        if (map.getCell(loc) == MapCell.MONSTER)
-        {
-            mon = monsterMap[loc.x()][loc.y()];
-            mon.takeDamage(character.attack());
-            monHealthBar();
-
-            character.takeDamage(mon.attack());
-            this.healthBar();
-
-            if (character.getHealth() <= 0)
+            ILocation loc =
+                new Location(character.getLocation().x(), character
+                    .getLocation().y());
+            if (status == directionOfChar.NORTH)
             {
-                character.remove();
-                character = null;
-
-                fight.setEnabled(false);
-                north.setEnabled(false);
-                south.setEnabled(false);
-                east.setEnabled(false);
-                west.setEnabled(false);
+                loc = loc.north();
+            }
+            else if (status == directionOfChar.EAST)
+            {
+                loc = loc.east();
+            }
+            else if (status == directionOfChar.SOUTH)
+            {
+                loc = loc.south();
+            }
+            else
+            {
+                loc = loc.west();
             }
 
-            if (mon.getHealth() <= 0)
+            if (map.getCell(loc) == MapCell.MONSTER)
             {
-                mon.remove();
-                map.setCell(loc, MapCell.UNEXPLORED);
-                monsterMap[loc.x()][loc.y()] = null;
-                mon = null;
+                mon = monsterMap[loc.x()][loc.y()];
+                mon.takeDamage(character.attack());
+                monHealthBar();
+
+                character.takeDamage(mon.attack());
+                this.healthBar();
+
+                if (character.getHealth() <= 0)
+                {
+                    character.remove();
+                    character = null;
+                }
+
+                if (mon.getHealth() <= 0)
+                {
+                    mon.remove();
+                    map.setCell(loc, MapCell.UNEXPLORED);
+                    monsterMap[loc.x()][loc.y()] = null;
+                    mon = null;
+                }
             }
         }
     }
@@ -256,16 +253,19 @@ public class MapScreen
      */
     public void northClicked()
     {
-        // character moves north
-        status = directionOfChar.NORTH;
-        ILocation loc = character.getLocation().north();
-        character.setDirection(status);
-        if (character.getLocation().y() > 0
-            && map.getCell(loc) != MapCell.MONSTER)
+        if (character != null)
         {
-            character.moveBy(0, -side);
-            character.setLocation(loc);
-            reachedGoal();
+            // character moves north
+            status = directionOfChar.NORTH;
+            ILocation loc = character.getLocation().north();
+            character.setDirection(status);
+            if (character.getLocation().y() > 0
+                && map.getCell(loc) != MapCell.MONSTER)
+            {
+                character.moveBy(0, -side);
+                character.setLocation(loc);
+                reachedGoal();
+            }
         }
     }
 
@@ -275,16 +275,19 @@ public class MapScreen
      */
     public void southClicked()
     {
-        // character moves south
-        status = directionOfChar.SOUTH;
-        ILocation loc = character.getLocation().south();
-        character.setDirection(status);
-        if (character.getLocation().y() < size - 1
-            && map.getCell(loc) != MapCell.MONSTER)
+        if (character != null)
         {
-            character.moveBy(0, side);
-            character.setLocation(loc);
-            reachedGoal();
+            // character moves south
+            status = directionOfChar.SOUTH;
+            ILocation loc = character.getLocation().south();
+            character.setDirection(status);
+            if (character.getLocation().y() < size - 1
+                && map.getCell(loc) != MapCell.MONSTER)
+            {
+                character.moveBy(0, side);
+                character.setLocation(loc);
+                reachedGoal();
+            }
         }
     }
 
@@ -294,16 +297,19 @@ public class MapScreen
      */
     public void eastClicked()
     {
-        // character moves east
-        status = directionOfChar.EAST;
-        ILocation loc = character.getLocation().east();
-        character.setDirection(status);
-        if (character.getLocation().x() < size - 1
-            && map.getCell(loc) != MapCell.MONSTER)
+        if (character != null)
         {
-            character.moveBy(side, 0);
-            character.setLocation(loc);
-            reachedGoal();
+            // character moves east
+            status = directionOfChar.EAST;
+            ILocation loc = character.getLocation().east();
+            character.setDirection(status);
+            if (character.getLocation().x() < size - 1
+                && map.getCell(loc) != MapCell.MONSTER)
+            {
+                character.moveBy(side, 0);
+                character.setLocation(loc);
+                reachedGoal();
+            }
         }
     }
 
@@ -313,16 +319,19 @@ public class MapScreen
      */
     public void westClicked()
     {
-        // character moves west
-        status = directionOfChar.WEST;
-        ILocation loc = character.getLocation().west();
-        character.setDirection(status);
-        if (character.getLocation().x() > 0
-            && map.getCell(loc) != MapCell.MONSTER)
+        if (character != null)
         {
-            character.moveBy(-side, 0);
-            character.setLocation(loc);
-            reachedGoal();
+            // character moves west
+            status = directionOfChar.WEST;
+            ILocation loc = character.getLocation().west();
+            character.setDirection(status);
+            if (character.getLocation().x() > 0
+                && map.getCell(loc) != MapCell.MONSTER)
+            {
+                character.moveBy(-side, 0);
+                character.setLocation(loc);
+                reachedGoal();
+            }
         }
     }
 
@@ -476,5 +485,16 @@ public class MapScreen
     public Map getMap()
     {
         return map;
+    }
+
+
+    /**
+     * Returns the monster
+     *
+     * @return the current monster
+     */
+    public Monsters getMonster()
+    {
+        return mon;
     }
 }

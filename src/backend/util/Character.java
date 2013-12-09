@@ -280,11 +280,4 @@ public class Character
         x = loc.x();
         y = loc.y();
     }
-//    /**
-//     * public void setLocation(directionOfChar status) { if (status ==
-//     * directionOfChar.NORTH) { north = direction.east(); } else if (status ==
-//     * directionOfChar.EAST) { east = direction.east(); } else if (status ==
-//     * directionOfChar.SOUTH) { south = direction.south(); } else { west =
-//     * direction.west(); } }
-//     */
 }

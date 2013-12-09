@@ -1,5 +1,7 @@
 package backend.util;
 
+import sofia.util.Random;
+
 // -------------------------------------------------------------------------
 /**
  * Test Cases for the MapScreen
@@ -77,7 +79,7 @@ public class MapScreenTest
         assertEquals(new Location(1, 1), getScreen().getCharacter()
             .getLocation());
 
-        //move to the bottom right of the screen
+        // move to the bottom right of the screen
         getScreen().getCharacter().setLocation(new Location(7, 7));
 
         getScreen().eastClicked();
@@ -94,6 +96,7 @@ public class MapScreenTest
         assertEquals(new Location(6, 6), getScreen().getCharacter()
             .getLocation());
     }
+
 
     /**
      * Test movement around a monster
@@ -121,11 +124,55 @@ public class MapScreenTest
             .getLocation());
     }
 
+
     /**
-     * Test fighting
+     * Test fighting when there is no Monster present
+     */
+    public void testFightingNoMonster()
+    {
+        getScreen().fightClicked();
+        getScreen().getCharacter().setDirection(directionOfChar.NORTH);
+        getScreen().fightClicked();
+        getScreen().getCharacter().setDirection(directionOfChar.SOUTH);
+        getScreen().fightClicked();
+        getScreen().getCharacter().setDirection(directionOfChar.EAST);
+        getScreen().fightClicked();
+        getScreen().getCharacter().setDirection(directionOfChar.WEST);
+
+        assertEquals(30, getScreen().getCharacter().getHealth());
+    }
+
+
+    /**
+     * Tests fighting, and destroying a monster
      */
     public void testFighting()
     {
+        getScreen().getCharacter().setLocation(new Location(2, 3));
+        Random.setNextInts(0, 1, 0);
+        getScreen().fightClicked();
+        assertEquals(30, getScreen().getCharacter().getHealth());
+        assertEquals(10, getScreen().getMonster().getHealth());
+        getScreen().fightClicked();
+        assertNull(getScreen().getMonster());
+    }
 
+    /**
+     * Tests fighting
+     */
+    public void testDeath()
+    {
+        getScreen().getCharacter().setLocation(new Location(2, 3));
+        Random.setNextInts(1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0);
+        getScreen().fightClicked();
+        assertEquals(25, getScreen().getCharacter().getHealth());
+        assertEquals(30, getScreen().getMonster().getHealth());
+        getScreen().fightClicked();
+        getScreen().fightClicked();
+        getScreen().fightClicked();
+        getScreen().fightClicked();
+        getScreen().fightClicked();
+
+        assertNull(getScreen().getCharacter());
     }
 }
