@@ -120,4 +120,12 @@ public class MapScreenTest
         assertEquals(new Location(3, 4), getScreen().getCharacter()
             .getLocation());
     }
+
+    /**
+     * Test fighting
+     */
+    public void testFighting()
+    {
+
+    }
 }
