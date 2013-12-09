@@ -2,9 +2,7 @@ package backend.util;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
- *
+ * Interface for the location class
  * @author Mary-Wynn Rogers (marywynn)
  * @version 2013.11.11
  */

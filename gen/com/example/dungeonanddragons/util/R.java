@@ -19,7 +19,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int buttonBarStyle=0x7f010000;
     }
     public static final class color {
-        public static final int black_overlay=0x7f040000;
+        public static final int black_overlay=0x7f060000;
     }
     public static final class drawable {
         public static final int combat103_woodelf=0x7f020000;
@@ -44,19 +44,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int mapscreen=0x7f030000;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int defend=0x7f050009;
-        public static final int dummy_button=0x7f050001;
-        public static final int dummy_content=0x7f050002;
-        public static final int east=0x7f050003;
-        public static final int fight=0x7f050007;
-        public static final int flee=0x7f050008;
-        public static final int north=0x7f050004;
-        public static final int south=0x7f050006;
-        public static final int west=0x7f050005;
+        public static final int app_name=0x7f040000;
+        public static final int defend=0x7f040009;
+        public static final int dummy_button=0x7f040001;
+        public static final int dummy_content=0x7f040002;
+        public static final int east=0x7f040003;
+        public static final int fight=0x7f040007;
+        public static final int flee=0x7f040008;
+        public static final int north=0x7f040004;
+        public static final int south=0x7f040006;
+        public static final int west=0x7f040005;
     }
     public static final class style {
         /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
 
@@ -80,15 +89,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f050000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int ButtonBar=0x7f060003;
-        public static final int ButtonBarButton=0x7f060004;
-        public static final int FullscreenActionBarStyle=0x7f060005;
-        public static final int FullscreenTheme=0x7f060002;
+        public static final int AppTheme=0x7f050001;
+        public static final int ButtonBar=0x7f050003;
+        public static final int ButtonBarButton=0x7f050004;
+        public static final int FullscreenActionBarStyle=0x7f050005;
+        public static final int FullscreenTheme=0x7f050002;
     }
     public static final class styleable {
         /** 

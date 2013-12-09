@@ -4,8 +4,7 @@ import backend.util.Map.MapCell;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * Test class for the map screen
  *
  * @author Mary-Wynn Rogers (marywynn)
  * @version 2013.11.15
