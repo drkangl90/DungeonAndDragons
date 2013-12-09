@@ -214,20 +214,20 @@ public class Character
 
 
     // ----------------------------------------------------------
-    /**
-     * gets the direction of the character in the map
-     *
-     * @return returns the location of the character
-     */
-    public Location getDirection()
-    {
-        return getDirection();
-    }
+//    /**
+//     * gets the direction of the character in the map
+//     *
+//     * @return returns the location of the character
+//     */
+//    public Location getDirection()
+//    {
+//        return getDirection();
+//    }
 
 
     // ----------------------------------------------------------
     /**
-     * sets the location of the character
+     * sets the direction of the character
      *
      * @param status
      */
@@ -264,9 +264,9 @@ public class Character
     }
 
 
-    /**
-     * public ILocation getLocation() { return getLocation(); }
-     */
+//    /**
+//     * public ILocation getLocation() { return getLocation(); }
+//     */
 
     // ----------------------------------------------------------
     /**
@@ -280,11 +280,11 @@ public class Character
         x = loc.x();
         y = loc.y();
     }
-    /**
-     * public void setLocation(directionOfChar status) { if (status ==
-     * directionOfChar.NORTH) { north = direction.east(); } else if (status ==
-     * directionOfChar.EAST) { east = direction.east(); } else if (status ==
-     * directionOfChar.SOUTH) { south = direction.south(); } else { west =
-     * direction.west(); } }
-     */
+//    /**
+//     * public void setLocation(directionOfChar status) { if (status ==
+//     * directionOfChar.NORTH) { north = direction.east(); } else if (status ==
+//     * directionOfChar.EAST) { east = direction.east(); } else if (status ==
+//     * directionOfChar.SOUTH) { south = direction.south(); } else { west =
+//     * direction.west(); } }
+//     */
 }

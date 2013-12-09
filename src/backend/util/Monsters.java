@@ -1,7 +1,7 @@
 package backend.util;
 
 import sofia.graphics.RectangleShape;
-import java.util.Random;
+import sofia.util.Random;
 
 // -------------------------------------------------------------------------
 /**
@@ -143,6 +143,16 @@ public class Monsters
     {
         x = loc.x();
         y = loc.y();
+    }
+
+
+    /**
+     * Gets the location of the monster
+     * @return returns the location of the monster
+     */
+    public ILocation getLocation()
+    {
+        return new Location(x, y);
     }
 
 

@@ -98,6 +98,17 @@ public class CharacterTest
      */
     public void testDirection()
     {
-        //
+        character.setDirection(directionOfChar.NORTH);
+        assertEquals(character.getRotation(), 270);
+    }
+
+    /**
+     * Testing the location of the character.
+     */
+    public void testLocation()
+    {
+        Location location = new Location(0, 1);
+        character.setLocation(new Location(0, 1));
+        assertTrue(character.getLocation().equals(location));
     }
 }

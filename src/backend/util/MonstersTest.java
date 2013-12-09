@@ -35,8 +35,8 @@ public class MonstersTest
     public void testAttack()
     {
         Random.setNextInts(1, 0);
-        assertEquals(monster.attack(), 5);
         assertEquals(monster.attack(), 0);
+        assertEquals(monster.attack(), 5);
     }
 
 
@@ -81,5 +81,15 @@ public class MonstersTest
     {
         monster.takeDamage(20);
         assertEquals(monster.getHealth(), 10);
+    }
+
+    /**
+     * Testing the location of the character.
+     */
+    public void testLocation()
+    {
+        Location location = new Location(7, 7);
+        monster.setLocation(new Location(7, 7));
+        assertTrue(monster.getLocation().equals(location));
     }
 }
