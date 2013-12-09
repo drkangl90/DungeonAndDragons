@@ -99,7 +99,7 @@ public class CharacterTest
     public void testDirection()
     {
         character.setDirection(directionOfChar.NORTH);
-        assertEquals(character.getRotation(), 270);
+        assertEquals((int) character.getRotation(), 270);
     }
 
     /**
